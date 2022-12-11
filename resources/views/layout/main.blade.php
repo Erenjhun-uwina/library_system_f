@@ -2,10 +2,9 @@
 
 {{--  dito nio lagay ung mga pauliulit na parts --}}
 
-
 @section('head')
     @yield('head')
-    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/default.css">
 @endsection
 
 @section('body')
