@@ -7,7 +7,11 @@
     ma ooveride ung contents --}}
     @parent
 
-    lamlamlamma
+    <main>
+        <img class="books" id="books" src="https://i.pinimg.com/564x/88/3d/8a/883d8acb789ea481af8b8f004884db5c.jpg" alt="">
+    
+        <h1 id="stay"> "STAY KNOWLEDGEABLE <br> QCIans" </h1>
+    </main>
 
     <a href="/logout/{{session('id')}}"> temporary logout('for testing ng logout')</a>
 @endsection
