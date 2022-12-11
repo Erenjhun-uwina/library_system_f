@@ -9,7 +9,6 @@ class Valid_acc_type
 {
     private $allowed_acc_types = ['admin','borrower'];
 
-
     /**
      * Handle an incoming request.
      *
@@ -20,7 +19,7 @@ class Valid_acc_type
     public function handle(Request $req, Closure $next)
     {   
         $acc_type = trim($req->acc_type) ?: 'borrower';
-        if (!$this->is_valid_acc_type($acc_type)) return abort(403, "invalid account type! given:( {$acc_type} ). Valid ['borrower','admin']");
+        if (!$this->is_valid_acc_type($acc_type)) return abort(403, "invalid account type!given:({$acc_type}).Valid:['borrower','admin']");
         return $next($req);
     }
 
