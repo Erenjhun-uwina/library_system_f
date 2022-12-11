@@ -2,13 +2,14 @@
 
 @section('title', 'login')
 
-
+<link rel="stylesheet" href="/css/style.css">
+<link href="/css/login.css" rel="stylesheet">
 
 @section('body')
 
     <div id='form_con'>
 
-        <h1>Login</h1>
+        <h1>QCU LIBRARY SYSTEM</h1>
 
 
         @include('layout.form_err')

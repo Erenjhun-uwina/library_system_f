@@ -23,6 +23,8 @@
 </body>
 </html> --}}
 
+<link rel="stylesheet" href="/css/style.css">
+<link href="/css/acc_type.css" rel="stylesheet">
 
 @extends('layout.metas')
 

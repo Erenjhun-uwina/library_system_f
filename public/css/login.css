@@ -1,18 +1,68 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  background:#efe2d9;
+  font-weight: bold;
+  background-position: center;
+  background-size:cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  width: 100vw;
+}
 
-  body {
-    background:#efe2d9;
-    font-weight: bold;
-    background-position: center;
-    background-size:cover;
-    background-repeat: no-repeat;
-    text-align: center;
-    width: 50vw;
-  }
+form {
+  margin: auto;
+  width:50rem;
+  padding: 3rem;
+  text-align: center;
+  background:#e6cdb9;
+  margin-top:5rem;
+  border-radius: 35px;
+  
+}
 
+input[type="text"],
+input[type="password"] {
+  width: 20rem;
+  padding: 0.5rem;
+  border-radius: 90px;
+  margin: 0.3rem;
+  font-size: 1.3rem;
+}
+
+h1 {
+  color: white;
+  background-color: #c5beb8;
+  font-size: 6rem;
+  font-weight: bold;
+  padding: 2rem;
+  -webkit-text-stroke-width: 1.9px;
+  -webkit-text-stroke-color: black;
+    
+  
+}
+
+#submit {
+  width: 20rem;
+  padding: 0.5rem;
+  border-radius: 50px;
+  margin: 0.3rem;
+  font-size: 1.2rem;
+  background-color:white;
+  
+}
+
+#button{
+  width: 20rem;
+  padding: 0.5rem;
+  border-radius: 50px;
+  margin: 0.3rem;
+  font-size: 1.2rem;
+  background-color:white;
+  
+}
   
