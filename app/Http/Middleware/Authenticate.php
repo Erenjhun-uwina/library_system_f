@@ -16,7 +16,8 @@ class Authenticate
      */
     public function handle(Request $request, Closure $next)
     {   
-        if(!session('id'))return redirect('login');
+        $acc_type = $request->acc_type;
+        if(!session('id'))return redirect('login/'.$acc_type);
         return $next($request);
     }
 }

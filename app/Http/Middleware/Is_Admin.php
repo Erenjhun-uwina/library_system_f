@@ -18,7 +18,7 @@ class Is_Admin
     {   
         $is_admin = true;
 
-        if(!$is_admin)return redirect("login",403);
+        if(!$is_admin)return redirect("/login/admin",403);
         return $next($request);
     }
 }
