@@ -1,4 +1,4 @@
-@extends('layout.main')
+
 
 @section('title', 'login')
 
@@ -8,7 +8,7 @@
 
     <div id='form_con'>
 
-        <h1>lmao form</h1>
+        <h1>Login</h1>
 
         <div>
             @if ($errors->any())
@@ -30,4 +30,4 @@
     </div>
 
 
-@endsection
+
