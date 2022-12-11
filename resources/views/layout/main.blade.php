@@ -2,15 +2,27 @@
 
 {{--  dito nio lagay ung mga pauliulit na parts --}}
 
-<<<<<<< HEAD
 <header>
     <img class="logo" id='qcu' src="https://upload.wikimedia.org/wikipedia/en/1/11/QCU_Logo_2019.png" alt="">
     <img class="logo" id="qc" src="http://www.geocities.ws/qcpu2grivera/images/qcgov.png" alt="">
 </header>
 
+<div id="btn_con">
+    <a href="/home/{{$acc_type}}"> <button id="home">
+            <i class="fa-solid fa-house-chimney"></i> HOME</button></a>
+    <a href="/books"><button id="book">BOOKS</button></a>
+    <button id="logout"> <i class="fa-solid fa-right-from-bracket"></i></button>
 
-=======
->>>>>>> 81c164f4c7b3bdcaa66ae39660b933ce4797625f
+    <div id="about_con">
+        <button id="about"><i class="fa-solid fa-circle-info"></i> ABOUT<i class="fa fa-caret-down"></i></button>
+        <div id="about_dropdown">
+            <a id="description_btn"> Description</a>
+            <a id="mission_btn">Mission</a>
+            <a id="vision_btn">Vision</a>
+        </div>
+    </div>
+
+
 @section('head')
     @yield('head')
     <link rel="stylesheet" href="/css/default.css">
