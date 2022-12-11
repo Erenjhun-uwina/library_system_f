@@ -15,7 +15,7 @@
         <p>J.K. Rowling </p>
 
         <div id="btn_con">
-            <a id="Borrower" href="login/borrower">Borrower</a><br>
+            <a id="Borrower_btn" href="login/borrower">Borrower</a><br>
             <a id="librarian_btn" href="login/admin">ADMIN</a>
         </div>
     </center>
