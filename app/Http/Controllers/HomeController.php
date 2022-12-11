@@ -8,6 +8,7 @@ class HomeController extends Controller
 {
     public function home(Request $request)
     {   
-        return view('home');
+        $acc_type = session("acc_type");
+        return view('home',compact('acc_type'));
     }
 }
