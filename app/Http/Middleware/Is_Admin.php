@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class Authenticate
+class Is_Admin
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,9 @@ class Authenticate
      */
     public function handle(Request $request, Closure $next)
     {   
-        if(!session('id'))return redirect('login');
+        $is_admin = true;
+
+        if(!$is_admin)return redirect("login",403);
         return $next($request);
     }
 }
