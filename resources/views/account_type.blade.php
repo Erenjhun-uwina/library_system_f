@@ -28,7 +28,7 @@
 
 @section('title', 'account type select')
 
-@section()
+@section('body')
     <center>
         <img id="logo" src="https://www.iconpacks.net/icons/2/free-opened-book-icon-3163-thumb.png" alt="">
 

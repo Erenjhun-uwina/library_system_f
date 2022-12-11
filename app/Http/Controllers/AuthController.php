@@ -11,7 +11,6 @@ class AuthController extends Controller
 {
     public function login_page(Request $req)
     {
-
         $acc_type = trim($req->acc_type) ?: 'borrower';
 
         // if the user is already logged in redirect to home
@@ -20,20 +19,18 @@ class AuthController extends Controller
         return view('login', compact('acc_type'));
     }
 
-
-
     // post requests
     public function logout()
-    {
+    {   
+        $acc_type = session('acc_type');
         session()->forget(['id', 'acc_type']);
-        return redirect('login');
+        return redirect("login/$acc_type");
     }
 
     public function login(Request $req)
     {
 
         $acc_type = $req->acc_type;
-
 
         $validator = Validator::make($req->all(), [
             'uname' => 'required',
