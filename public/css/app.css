@@ -6,3 +6,7 @@
     box-sizing: border-box;
     font-style: inherit;
 }
+
+body{
+    background: #789;
+}

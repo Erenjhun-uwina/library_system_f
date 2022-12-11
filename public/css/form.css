@@ -1,0 +1,29 @@
+/* default form css */
+
+/* kung gusto nio may unique sa form nayan lagyan nio ng id then gawa kayo ng iba pang
+css file specific dun
+
+*/
+
+.form_con{
+    margin: auto;
+    text-align: center;
+}
+
+.form_con form{
+    background: #89d;
+    padding: 2rem;
+    width: 80%;
+    margin: auto;
+}
+
+.form_con .label{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.form_con input{
+    margin: .2rem;
+    font-size: 1rem;
+    padding: .2rem .3rem;
+}
