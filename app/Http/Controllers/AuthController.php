@@ -7,15 +7,27 @@ use App\Models\Borrower;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
     public function login_page(Request $req)
     {
 
         $acc_type = trim($req->acc_type) ?: 'borrower';
 
+         // if the user is already logged in redirect to home
+         if(session('id') and session('acc_type') == $acc_type)return redirect("home");
+
         if (!$this->is_valid_acc_type($acc_type)) return abort(403, "did you mean (login/admin) or (login/borrower) ");
         return view('login', compact('acc_type'));
+    }
+
+
+
+    // post requests
+    public function logout()
+    {
+        session()->forget(['id','acc_type']);
+        return redirect('login');
     }
 
     public function login(Request $req)
@@ -23,6 +35,7 @@ class LoginController extends Controller
 
         $acc_type = $req->acc_type;
 
+       
         $validator = Validator::make($req->all(), [
             'uname' => 'required',
             'pass' => 'required'
@@ -45,10 +58,9 @@ class LoginController extends Controller
             'id' => $acc->id,
             'acc_type'=>$acc_type
         ]);
+
         return redirect('home');
     }
-
-
 
     private function auth($inputs, $model)
     {
