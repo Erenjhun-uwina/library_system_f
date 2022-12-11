@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- global css kung meron man --}}
-    <title>@yield('title')</title>
+@extends('layout.metas')
 
+{{--  dito nio lagay ung mga pauliulit na parts --}}
+
+
+@section('head')
     @yield('head')
-</head>
-<body>
+    <link rel="stylesheet" href="/css/header.css">
+@endsection
+
+@section('body')
     @yield('body')
-</body>
-</html>
+@endsection
