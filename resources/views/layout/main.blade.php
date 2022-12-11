@@ -2,7 +2,6 @@
 
 {{--  dito nio lagay ung mga pauliulit na parts --}}
 
-
 @section('head')
     @yield('head')
     <link rel="stylesheet" href="/css/default.css">
@@ -29,5 +28,4 @@
                 <a id="vision_btn">Vision</a>
             </div>
         </div>
-        @yield('body')
-    @endsection
+@endsection
