@@ -10,24 +10,15 @@
 
         <h1>Login</h1>
 
-        <div>
-            @if ($errors->any())
-                <h2>oops</h2>
-                @foreach ($errors->all() as $error)
-                    <span>{{ $error }}</span>
-                @endforeach
-            @endif
 
-        </div>
-
+        @include('layout.form_err')
 
         <form action="/login/{{ $acc_type }}" method="post">
             @csrf
             <input type="text" placeholder='username' name='uname' value='{{ old('uname') }}'><br>
             <input type="text" placeholder='password' name='pass'><br>
             <button type="submit">login</button>
+            <a href="/register/{{ $acc_type }}"><button type="button">register</button></a>
         </form>
     </div>
-
-
-
+@endsection
