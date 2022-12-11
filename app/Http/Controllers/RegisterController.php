@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {   
+    private $rules = [
+        'pass'=>'required',
+        'confirm_pass'=>'required'
+    ];
 
     public function register_page(Request $req)
     {   
@@ -20,7 +24,7 @@ class RegisterController extends Controller
     {      
         $acc_type = $req->acc_type();
 
-        $admin_rules = [''];
+        $admin_rules = ['uname'=>'required'];
         $validator = Validator::make($req->all(),);
         return back();
     }

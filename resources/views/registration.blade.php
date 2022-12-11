@@ -5,36 +5,38 @@
 @endsection
 
 @section('body')
-
     @parent
-    <h1> QCU LIBRARY SYSTEM </h1>
-    <form method="post" action="/register/{{ $acc_type }}">
-        @csrf
 
-        <p id="label">Register {{ $acc_type }}</p>
+    <div class="form_con">
+        <h1> QCU LIBRARY SYSTEM </h1>
+        <form method="post" action="/register/{{ $acc_type }}">
+            @csrf
 
-        @include('layout.form_err')
+            <span class="label">Register {{ $acc_type }}</span>
 
-        @if ($acc_type == 'borrower')
-            <input type="text" name="fn" id="" placeholder="firstname" required>
-            <input type="text" name="ln" id="" placeholder="lastname" required>
-            <input type="text" name="id no" id="" placeholder="I.D no (22-0573)" required
-                pattern="([0-9]{2})-([0-9]{4,5})">
-            <input type="text" name="stat" id="" placeholder=" status" required>
-        @endif
-        @if ($acc_type != 'admin')
-            <input type="text" name="contact_no" id="" placeholder="contact_no(0912-356-7893)" required
-                pattern="09([0-9]{9})"> <br>
-        @endif
+            @include('layout.form_err')
 
-        @if ($acc_type == 'admin')
-            <input type="text" name="uname" id="" placeholder="username" required>
-        @endif
+            <input type="text" name="fn" placeholder="first name" required><br>
+            <input type="text" name="ln" placeholder="last name" required><br>
 
-        <input type="password" name="pass" id="" placeholder="password" required>
-        <input type="password" placeholder="Confirm Password" name="confirm_pass" required><br>
+            @if ($acc_type == 'borrower')
+                <input type="text" name="id no" placeholder="I.D no (22-0573)" required
+                    pattern="([0-9]{2})-([0-9]{4,5})"><br>
+                <input type="text" name="stat" placeholder=" status" required><br>
+            @endif
+            @if ($acc_type != 'admin')
+                <input type="text" name="contact_no" placeholder="contact_no(0912-356-7893)" required
+                    pattern="09([0-9]{9})"> <br>
+            @endif
 
-        <button type="submit">register</button>
-    </form>
-    
+            @if ($acc_type == 'admin')
+                <input type="text" name="uname" placeholder="username" required><br>
+            @endif
+
+            <input type="password" name="pass" placeholder="password" required><br>
+            <input type="password" placeholder="Confirm Password" name="confirm_pass" required><br>
+
+            <button type="submit">register</button>
+        </form>
+    </div>
 @endsection
