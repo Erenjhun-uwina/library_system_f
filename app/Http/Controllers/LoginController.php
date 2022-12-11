@@ -10,38 +10,56 @@ use Illuminate\Support\Facades\Validator;
 class LoginController extends Controller
 {
     public function login_page(Request $req)
-    {   
-        $acc_type = $req->acc_type;
-        return view('login',compact('acc_type'));
+    {
+
+        $acc_type = trim($req->acc_type) ?: 'borrower';
+
+        if (!$this->is_valid_acc_type($acc_type)) return abort(403, "did you mean (login/admin) or (login/borrower) ");
+        return view('login', compact('acc_type'));
     }
 
     public function login(Request $req)
     {
-        $validator = Validator::make($req->all(),[
-            'uname'=>'required',
-            'pass'=>'required'
-        ],[
-            'uname'=>'username is required',
-            'pass'=>'password cannot be blank'
-        ]);
 
-        if($validator->fails()){
-            // dd('lmao');
-            return back()->withErrors($validator)->withInput();
-        }
         $acc_type = $req->acc_type;
 
-        $model = $acc_type == 'admin'?Admin::class:Borrower::class;
+        $validator = Validator::make($req->all(), [
+            'uname' => 'required',
+            'pass' => 'required'
+        ], [
+            'uname' => 'username is required',
+            'pass' => 'password cannot be blank'
+        ]);
 
-        
+        if ($validator->fails()) {
+            return redirect("login/$acc_type")->withErrors($validator)->withInput();
+        }
 
-        $acc = $model::firstWhere('uname',$req->uname);
+        $model = $acc_type == 'admin' ? Admin::class : Borrower::class;
+        $validated = $validator->valid();
+
+        $acc = $this->auth($validated, $model);
+        if (!$acc) return redirect("login/$acc_type")->withErrors("invalid credentials");
+
+        session([
+            'id' => $acc->id,
+            'acc_type'=>$acc_type
+        ]);
+        return redirect('home');
     }
 
 
 
-    private function auth()
+    private function auth($inputs, $model)
     {
-        
+        $uname = $inputs['uname'];
+        $pass = $inputs['pass'];
+
+        $acc = $model::firstWhere([
+            ['uname', '=', $uname],
+            ['pass', '=', $pass]
+        ]);
+
+        return ($acc);
     }
 }
