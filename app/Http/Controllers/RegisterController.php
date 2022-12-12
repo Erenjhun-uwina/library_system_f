@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\ImageUploader;
 use App\Models\Book;
 use App\Services\ModelService;
 use Illuminate\Http\Request;
@@ -53,7 +54,7 @@ class RegisterController extends Controller
         return redirect("login/$acc_type")->with('msg', 'register success');
     }
 
-    public function register_book(Request $req, ModelService $modelService)
+    public function register_book(Request $req,ImageUploader $uploader)
     {
         $validator = Validator::make($req->all(), [
             'title' => 'required'
@@ -61,7 +62,7 @@ class RegisterController extends Controller
 
         if ($validator->fails()) return redirect()->withErrors($validator);
 
-     
+
         if (Book::firstWhere([
             ['title', '=', $validator->valid()['title']],
             ['author', '=', $validator->valid()['author']]
@@ -69,7 +70,8 @@ class RegisterController extends Controller
             return  redirect('/dashboard')->withErrors("this book is already registered");
         }
 
+        Book::create(array_merge($validator->valid(), ['cover' => 'book.png']));
+        $uploader->handle($req->file('cover'),'assets/covers/');
 
-        Book::create(array_merge($validator->valid(),['cover'=>'book.png']) );
     }
 }
