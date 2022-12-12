@@ -14,8 +14,6 @@
         <h1>QCU LIBRARY SYSTEM</h1>
 
 
-
-
         <form action="/login/{{ $acc_type }}" method="post">
             @csrf
     {{$acc_type}} login 
