@@ -2,8 +2,10 @@
 
 @section('title', 'login')
 
-<link rel="stylesheet" href="/css/style.css">
-<link href="/css/login.css" rel="stylesheet">
+@section('head')
+    @parent
+    <link href="/css/login.css" rel="stylesheet">
+@endsection
 
 @section('body')
 
@@ -12,16 +14,16 @@
         <h1>QCU LIBRARY SYSTEM</h1>
 
 
-        
+
 
         <form action="/login/{{ $acc_type }}" method="post">
             @csrf
 
             @if (session('msg'))
-                <span class="success"> {{session('msg')}} </span> 
+                <span class="success"> {{ session('msg') }} </span>
             @endif
 
-            
+
 
             @include('layout.form_err')
             <input type="text" placeholder='username' name='uname' value='{{ old('uname') }}'><br>
