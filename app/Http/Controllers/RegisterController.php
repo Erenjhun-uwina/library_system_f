@@ -60,15 +60,15 @@ class RegisterController extends Controller
             'title' => 'required'
         ]);
 
-        if ($validator->fails()) return redirect()->withErrors($validator);
+        if ($validator->fails()) return redirect('/home')->withErrors($validator);
 
 
         if (Book::firstWhere([
             ['title', '=', $validator->valid()['title']],
             ['author', '=', $validator->valid()['author']]
         ])) {
-            return  redirect('/dashboard')->withErrors("this book is already registered");
-        }
+            return  redirect('/home')->withErrors("this book is already registered");
+        }   
 
         Book::create(array_merge($validator->valid(), ['cover' => 'book.png']));
         $uploader->handle($req->file('cover'),'assets/covers/');
