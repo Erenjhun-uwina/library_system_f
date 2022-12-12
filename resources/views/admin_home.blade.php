@@ -34,9 +34,9 @@
             <form action="/register_book" method='post' class="form-container">
 
                 @csrf
-
+                @include('layout.form_err')
                 <label for="booktitle"><b>Book Title</b></label>
-                <input type="text" placeholder="Book Title" name="booktitle" required>
+                <input type="text" placeholder="Book Title" name="title" required>
 
                 <label for="author"><b>Author</b></label>
                 <input type="text" placeholder="Author" name="author" required>
