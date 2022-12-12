@@ -18,7 +18,7 @@
 
         <form action="/login/{{ $acc_type }}" method="post">
             @csrf
-            {{$acc_type}} login
+    {{$acc_type}} login 
             @if (session('msg'))
                 <span class="success"> {{ session('msg') }} </span>
             @endif

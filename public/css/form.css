@@ -8,12 +8,13 @@ css file specific dun
 .form_con {
     margin: auto;
     text-align: center;
+  
 }
-
 .form_con form {
     padding: 2rem;
     width: 80%;
     margin: auto;
+    gap:3rem;
 }
 
 .form_con .label {
@@ -23,9 +24,11 @@ css file specific dun
 }
 
 .form_con input {
-    margin: .2rem;
+    margin: .3rem;
     font-size: 1rem;
     padding: .2rem .3rem;
+    border-radius: 2rem;
+    width: 25rem;
 }
 
 .form_con input[type=radio] {
@@ -51,6 +54,8 @@ css file specific dun
     width: 100%;
     text-align: center;
     margin: 0;
+    border-radius: 2rem;
+
 }
 
 .form_con label:hover {

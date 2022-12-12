@@ -17,7 +17,7 @@ body {
     width: 100vw;
   }
   
-  
+
 header {
     background: #c6beb8;
     display: flex;
@@ -111,7 +111,7 @@ h1 {
 }
 
 .paginator svg{
-  width:1.2rem
+  width:1rem
 }
 .paginator a{
   margin-inline: 1rem;

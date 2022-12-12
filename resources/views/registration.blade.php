@@ -3,7 +3,7 @@
 @section('head')
     @parent
     <link rel="stylesheet" href="/css/login.css">
-    <link rel="stylesheet" href="/css/form.css"
+   
 @endsection
 
 @section('title')
@@ -15,12 +15,13 @@
     @parent
 
     <div class="form_con">
+
         <h1> QCU LIBRARY SYSTEM </h1>
         <form method="post" action="/register/{{ $acc_type }}">
             @csrf
 
             <span class="label">Register {{ $acc_type }}</span>
-
+           
             @include('layout.form_err')
 
             <input type="text" name="fn" placeholder="first name" required><br>
@@ -28,7 +29,7 @@
 
             @if ($acc_type == 'borrower')
                 <input type="text" name="id no" placeholder="I.D no (22-0573)" ><br>
-
+           
 
                 <div class="radios">
                     <input type="radio" name="borrower_type" id="student_t" checked><label for="student_t" >student</label>

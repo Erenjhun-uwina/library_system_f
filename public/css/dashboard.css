@@ -13,7 +13,7 @@ body, html {
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
+  padding: 10px 15px;
   font-size: 17px;
   width: 25%;
 }
@@ -30,16 +30,33 @@ body, html {
   height: 100%;
   background-color: rgb(172, 134, 180);
 }
+
+#he {
+  font-size:3.5rem;
+  font-weight: bold;
+  font-family:  'Times New Roman';
+  color:black;
+  margin: 1rem;
+  }
+
+#hi {
+  font-weight: bold;
+  font-size: 1.8rem;
+  font-family: 'Courier New';
+  color: cornsilk;
+
+}
+
+
+
+
+
+
 /* 
 the fuck men ?????ahhahahahahhahaha
-nilipat ko sa class tabcontents tong bg takte paulit ulit hahahahah
-
+nilipat ko sa clas tabcontents tong bg takte paulit ulit hahahahah
+ // ok//
 #Home {background-color: rgb(172, 134, 180);}
 #News {background-color: rgb(172, 134, 180);}
 #Contact {background-color: rgb(172, 134, 180);}
-<<<<<<< HEAD
-#About {background-color: rgb(172, 134, 180);}
-.a {background-color: rgb(172, 134, 180);}
-=======
-#About {background-color: rgb(172, 134, 180);} */
->>>>>>> b5227282afd3f3083bf929e619985bfbb5baec2c
+#About {background-color: rgb(172, 134, 180);} *s/

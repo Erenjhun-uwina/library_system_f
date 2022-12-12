@@ -25,6 +25,14 @@ form {
   
 }
 
+.form_con input {
+  margin: .3rem;
+  font-size: 1.3rem;
+  padding: .9rem;
+  border-radius: 90px;
+  width: 20rem;
+}
+
 input[type="text"],
 input[type="password"] {
   width: 20rem;
@@ -65,10 +73,18 @@ h1 {
   background-color:white;
   
 }
-  
-#layout.form_err{
-  color: blue;
-  font-size: 2rem;
-  font-weight: bold;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+form_con input[type=radio] {
+  background: none;
+  display: none;
+}
+
+.form_con .radios {
+  width: 25rem;
+  background: rgb(90, 101, 145);
+  margin: auto;
+  border-radius: 10rem;
+  box-shadow: 0 0 .5rem black;
+  margin-block: .2rem;
+  overflow: hidden;
+  display: flex;
 }
