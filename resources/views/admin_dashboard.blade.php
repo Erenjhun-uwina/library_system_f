@@ -1,146 +1,218 @@
-@extends('layout.metas')
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('head')
-    <link href="/css/registration.css" rel="stylesheet">
-@endsection
-@section('title', 'dashboard')
+<style>
+* {box-sizing: border-box}
 
-@section('body')
-    @parent
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
 
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
 
-    <button class="tablink" onclick="openPage('Home', this, 'pink')" id="defaultOpen"> Records</button>
-    <button class="tablink" onclick="openPage('News', this, 'pink')">users</button>
-    <button class="tablink" onclick="openPage('Contact', this, 'pink')">Add Book</button>
+.tablink:hover {
+  background-color: rgb(172, 134, 180);;
+}
 
-    <a href="logout/{{ session('id') }}"><button id="logout"><i
-                class="fa-solid fa-arrow-right-from-bracket"></i></button></a>
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
 
-    <div id="Home" class="tabcontent">
-        <h3 id="he">Records</h3>
+#Home {background-color: rgb(172, 134, 180);}
+#News {background-color: rgb(172, 134, 180);}
+#Contact {background-color: rgb(172, 134, 180);}
+#About {background-color: rgb(172, 134, 180);}
+</style>
+</head>
+<body>
 
-        @forelse($transactions as $transaction)
-            @php
-                $borrower = $transaction->borrower;
-                $book = $transaction->book;
-            @endphp
+<button class="tablink" onclick="openPage('Home', this, 'rgb(172, 134, 180);')">Records</button>
+<button class="tablink" onclick="openPage('News', this, 'rgb(172, 134, 180);')" id="defaultOpen">News</button>
+<button class="tablink" onclick="openPage('Contact', this, 'rgb(172, 134, 180);')">Add Books</button>
+<button class="tablink" onclick="openPage('About', this, 'rgb(172, 134, 180);')">About</button>
+<button class="tablink"> Logout</button>
 
-            <div class="user_list">{{ $borrower->fn }} {{ $borrower->ln }} --- {{ $book->title }} </div>
+<div id="Home" class="tabcontent">
+  <h3>Records</h3>
+  <p>...</p>
+</div>
 
-        @empty
-        @endforelse
+<div id="News" class="tabcontent">
+  <h3>News</h3>
+  <p>Some news this fine day!</p> 
+</div>
 
-        <div class="paginator">
-            {{ $transactions->links() }}
-        </div>
-    </div>
+<div id="Contact" class="tabcontent">
+  <h3>Add Books</h3>
+  <p>...</p>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
 
-    <div id="News" class="tabcontent">
-        <h3 id="he">borrowers</h3>
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
 
-        @forelse($borrowers as $borrower)
-            <div class='user_list'>{{ $borrower->fn }} {{ $borrower->ln }} ----- {{ $borrower->borrower_type }}</div>
-        @empty
-            <div class='user_list'>no users</div>
-        @endforelse
-        <div class="paginator">
-            {{ $borrowers->links() }}
-        </div>
-    </div>
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
 
-    <div id="Contact" class="tabcontent">
-        <h3 id="he">Add Book</h3>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
 
-        <body>
-            <button class="open-button" onclick="openForm()">Open Form</button>
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
 
-            <div class="form-popup" id="myForm">
-                <form action="/add_book" method="POST" class="form-container">
-                    @csrf
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
 
-                    @if ($errors->any())
-                        <div class="alert alert-danger ">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: rgb(172, 134, 180);;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
 
-                    <label for="book"><b>Book</b></label>
-                    <input type="text" placeholder="Book Name" name="title" required>
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: rgb(172, 134, 180);;
+}
 
-                    <label for="Book"><b>Author</b></label>
-                    <input type="text" placeholder="Author" name="author" required>
-                    <label for="category"><b>Category</b></label>
-                    <input type="text" placeholder="Category" name="category" required>
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+</style>
 
-                    <label for="date"><b>Date</b></label>
-                    <input type="date" placeholder="Date" name="release" required>
+<button class="open-button" onclick="openForm()">Open Form</button>
 
-                    <button type="submit" class="btn">Submit</button>
-                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                </form>
-            </div>
+<div class="form-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h1>Login</h1>
 
-            <script>
-                function openForm() {
-                    document.getElementById("myForm").style.display = "block";
-                }
+    <label for="booktitle"><b>Book Title</b></label>
+    <input type="text" placeholder="Book Title" name="booktitle" required>
 
-                function closeForm() {
-                    document.getElementById("myForm").style.display = "none";
-                }
-            </script>
+    <label for="author"><b>Author</b></label>
+    <input type="text" placeholder="Author" name="author" required>
 
-        </body>
+    <label for="categpry"><b>Category</b></label>
+    <input type="text" placeholder="Category" name="category" required>
 
-        </html>
+    <label for="daterelease">Date Release:</label>
+  <input type="date" id="daterelease" name="daterelease">
 
-    </div>
+    <button type="submit" class="btn">Submit</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
 
-    <div id="About" class="tabcontent">
-        <h3 id="he">Description</h3>
-        <p>The purpose of our software/system is that we want to minimize the job of librarians and to make
-            it easier for QCU college students to borrow books. The Quezon City University Library System
-            takes charge of the acquisition, collection, organization, distribution, and preservation of books.
-            QCLS manages the dissemination of information through books</p><br>
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
 
-        <h3 id="he"> Mission </h3>
-        <p> To give college students the knowledge they need to learn better and assist them in
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
+</div>
+
+<div id="About" class="tabcontent">
+  <h3>Description</h3>
+  <p>The purpose of our software/system is that we want to minimize the job of librarians and to make
+        it easier for QCU college students to borrow books. The Quezon City University Library System
+        takes charge of the acquisition, collection, organization, distribution, and preservation of books.
+        QCLS manages the dissemination of information through books.</p><br>
+
+    <h3>Mission</h3>
+    <p>To give college students the knowledge they need to learn better and assist them in
             developing the research skills needed for a blended learning environment and to assists
             students and admin staff. </p><br>
 
-        <h3 id="he"> Vision </h3>
-        <p>The QCU library system is engaged in learning and discovery as essential participants in
-            the educational community. We develop, organize, provide access to, and preserve
-            materials to meet the needs of present and future generations of QCU students. </p>
+    <h3>Vision</h3>
+    <p>The QCU library system is engaged in learning and discovery as essential participants in
+        the educational community. We develop, organize, provide access to, and preserve
+        materials to meet the needs of present and future generations of QCU students.</p>
+</div>
 
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
 
-
-    </div>
-
-    <script>
-        
-
-        function openPage(pageName, elmnt, color) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablink");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].style.backgroundColor = "";
-            }
-            document.getElementById(pageName).style.display = "block";
-            elmnt.style.backgroundColor = color;
-        }
-
-        
-
-        document.getElementById("defaultOpen").click();
-    </script>
-@endsection
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+   
+</body>
+</html> 
