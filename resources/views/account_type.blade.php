@@ -33,7 +33,7 @@
     <center>
         <img id="logo" src="https://www.iconpacks.net/icons/2/free-opened-book-icon-3163-thumb.png" alt="">
 
-        <h1 class="prince">QCU<br>Library System </h1>
+        <h1 class="acc_type_header">QCU<br>Library System </h1>
         <p>"When in doubt go to the library."</p>
         <p>J.K. Rowling </p>
 
