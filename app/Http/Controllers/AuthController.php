@@ -47,7 +47,7 @@ class AuthController extends Controller
         $model = $acc_type == 'admin' ? Admin::class : Borrower::class;
         $validated = $validator->valid();
 
-        $acc = $this->auth($validated, $model);
+        $acc = self::auth($validated, $model);
         if (!$acc) return redirect("login/$acc_type")->withErrors("invalid credentials");
 
         session([
@@ -58,7 +58,7 @@ class AuthController extends Controller
         return redirect('home');
     }
 
-    private function auth($inputs, $model)
+    public static function auth($inputs, $model)
     {
         $uname = $inputs['uname'];
         $pass = $inputs['pass'];
