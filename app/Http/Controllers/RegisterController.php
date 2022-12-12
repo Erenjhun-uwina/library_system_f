@@ -73,7 +73,7 @@ class RegisterController extends Controller
         }   
 
 
-        $cover = $uploader->handle($req->file('cover'),'assets/covers/');
+        $cover = $uploader->handle($req->file('cover'),'assets/covers/','book.png');
         if(!$cover)redirect('/home')->withErrors("something went wrong uploading book img!");;
         Book::create(array_merge($validator->valid(), ['cover' => $cover]));
         return back()->with('msg','success');

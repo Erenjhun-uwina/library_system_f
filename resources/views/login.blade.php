@@ -16,11 +16,9 @@
 
         <form action="/login/{{ $acc_type }}" method="post">
             @csrf
-    {{$acc_type}} login 
-            @if (session('msg'))
-                <span class="success"> {{ session('msg') }} </span>
-            @endif
-
+            {{ $acc_type }} login
+           
+            @include('layout.form_msg')
             @include('layout.form_err')
             <input type="text" placeholder='username' name='uname' value='{{ old('uname') }}'><br>
             <input type="password" placeholder='password' name='pass'><br>

@@ -10,7 +10,7 @@ class ImageUploader{
     /**
      * if filename is not given generate uniqe one based on date 
      */
-    public function handle(UploadedFile $file ,string $path,$filename=null)
+    public function handle(UploadedFile $file = null,string $path,$filename=null)
     {
         $new_file_name=$filename;
 

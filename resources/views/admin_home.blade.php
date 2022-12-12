@@ -31,9 +31,10 @@
         <button class="open-button" onclick="openForm()">Open Form</button>
 
         <div class="form-popup" id="myForm">
-            <form action="/register_book" method='post' class="form-container">
+            <form action="/register_book" method='post' class="form-container" enctype='multipart/form-data'>
 
                 @csrf
+                @include('layout.form_msg')
                 @include('layout.form_err')
                 <label for="booktitle"><b>Book Title</b></label>
                 <input type="text" placeholder="Book Title" name="title" required>
