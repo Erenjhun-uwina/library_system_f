@@ -66,3 +66,9 @@ h1 {
   
 }
   
+#layout.form_err{
+  color: blue;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
