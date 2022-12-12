@@ -6,14 +6,13 @@
 <style>
 * {box-sizing: border-box}
 
-/* Set height of body and the document to 100% */
+
 body, html {
   height: 100%;
   margin: 0;
   font-family: Arial;
 }
 
-/* Style tab links */
 .tablink {
   background-color: #555;
   color: white;
@@ -21,16 +20,16 @@ body, html {
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
+  padding: 10px 10px;
   font-size: 17px;
-  width: 25%;
+  width: 20%;
 }
 
 .tablink:hover {
   background-color: rgb(172, 134, 180);;
 }
 
-/* Style the tab content (and add height:100% for full page content) */
+
 .tabcontent {
   color: white;
   display: none;
@@ -70,7 +69,7 @@ body, html {
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
-/* Button used to open the contact form - fixed at the bottom of the page */
+
 .open-button {
   background-color: #555;
   color: white;
@@ -84,7 +83,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   width: 280px;
 }
 
-/* The popup form - hidden by default */
+
 .form-popup {
   display: none;
   position: fixed;
@@ -94,14 +93,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
   z-index: 9;
 }
 
-/* Add styles to the form container */
+
 .form-container {
   max-width: 300px;
   padding: 10px;
   background-color: white;
 }
 
-/* Full-width input fields */
+
 .form-container input[type=text], .form-container input[type=password] {
   width: 100%;
   padding: 15px;
@@ -110,13 +109,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
   background: #f1f1f1;
 }
 
-/* When the inputs get focus, do something */
 .form-container input[type=text]:focus, .form-container input[type=password]:focus {
   background-color: #ddd;
   outline: none;
 }
 
-/* Set a style for the submit/login button */
+
 .form-container .btn {
   background-color: rgb(172, 134, 180);;
   color: white;
@@ -128,12 +126,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
   opacity: 0.8;
 }
 
-/* Add a red background color to the cancel button */
 .form-container .cancel {
   background-color: rgb(172, 134, 180);;
 }
 
-/* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
@@ -210,7 +206,6 @@ function openPage(pageName,elmnt,color) {
   elmnt.style.backgroundColor = color;
 }
 
-// Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 </script>
    
