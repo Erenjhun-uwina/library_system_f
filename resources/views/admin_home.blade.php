@@ -31,7 +31,7 @@
         <button class="open-button" onclick="openForm()">Open Form</button>
 
         <div class="form-popup" id="myForm">
-            <form action="/add_book" class="form-container">
+            <form action="/register_book" method='post' class="form-container">
 
                 @csrf
 
