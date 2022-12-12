@@ -16,8 +16,7 @@ class Is_Admin
      */
     public function handle(Request $request, Closure $next,$uri)
     {   
-        $is_admin = true;
-
+        $is_admin = session('acc_type')=='admin';
         if($is_admin)return redirect("/$uri");
         return $next($request);
     }
