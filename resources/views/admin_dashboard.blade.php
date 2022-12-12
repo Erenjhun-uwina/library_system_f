@@ -12,7 +12,7 @@
     <button class="tablink" onclick="openPage('News', this)" id="defaultOpen">News</button>
     <button class="tablink" onclick="openPage('Contact', this)">Add Books</button>
     <button class="tablink" onclick="openPage('About', this)">About</button>
-    <button class="tablink"> Logout</button>
+    <a href="/logout/{{ session('id') }}"> <button class="tablink"> Logout</button></a>
 
     <div id="Home" class="tabcontent">
         <h3>Records</h3>
@@ -33,19 +33,24 @@
 
         <div class="form-popup" id="myForm">
             <form action="register_book" method='post' class="form-container">
-                <h1>Login</h1>
                 @csrf
-                <label for="booktitle"><b>Book Title</b></label>
-                <input type="text" placeholder="Book Title" name="booktitle" required>
+                @include('layout.form_err')
+                <label for="title"><b>Book Title</b></label>
+                <input type="text" placeholder="Book Title" name="title" id='title' required>
 
                 <label for="author"><b>Author</b></label>
-                <input type="text" placeholder="Author" name="author" required>
+                <input type="text" placeholder="Author" name="author" id='author' required>
 
                 <label for="categpry"><b>Category</b></label>
-                <input type="text" placeholder="Category" name="category" required>
+                <input type="text" placeholder="Category" name="category" id='category' required>
 
                 <label for="daterelease">Date Release:</label>
-                <input type="date" id="daterelease" name="daterelease">
+                <input type="date" id="daterelease" name="date_release" >
+                
+                <label for="cover">cover</label><input type="file" accept='image/*' id='cover' name='cover'>
+
+                <label for="quantity">quantity</label>
+                <input type="number" name="quanity" id="quantity" value='1'>
 
                 <button type="submit" class="btn">Submit</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
@@ -87,20 +92,20 @@
     </div>
 
 
-<script>
-function openPage(pageName,elmnt,color) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].style.backgroundColor = "";
-  }
-  document.getElementById(pageName).style.display = "block";
-  elmnt.style.backgroundColor = color;
-}
+    <script>
+        function openPage(pageName, elmnt, color) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = color;
+        }
 
         document.getElementById("defaultOpen").click();
     </script>

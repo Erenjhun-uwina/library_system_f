@@ -20,7 +20,7 @@ class RegisterController extends Controller
     private $borrower_rules = [
         'contact_no' => 'required',
         'email' => "required",
-        "id_no"=>'regex:/([0-9]{2})-([0-9]{4,5})/u',
+        "id_no" => 'regex:/([0-9]{2})-([0-9]{4,5})/u',
     ];
 
 
@@ -42,31 +42,34 @@ class RegisterController extends Controller
             return redirect('register/' . $acc_type)->withErrors($validator);
         }
         $inputs = $validator->valid();
-        if( strcmp($inputs['pass'],$inputs['confirm_pass']) !== 0)return redirect('register/' . $acc_type)->withErrors('passwords do not match');
+        if (strcmp($inputs['pass'], $inputs['confirm_pass']) !== 0) return redirect('register/' . $acc_type)->withErrors('passwords do not match');
 
         $model = $modelService->get_acc_model($acc_type);
         $acc = $modelService->exist($model, 'uname', $inputs['uname']);
 
         if ($acc) return redirect('register/' . $acc_type)->withErrors('this user is already regitered');
-        
+
         $model::create($inputs);
-        return redirect("login/$acc_type")->with('msg','register success');
+        return redirect("login/$acc_type")->with('msg', 'register success');
     }
 
-    public function register_book(Request $req,ModelService $modelService)
+    public function register_book(Request $req, ModelService $modelService)
     {
-        $validator = Validator::make($req->all(),[
-
+        $validator = Validator::make($req->all(), [
+            'title' => 'required'
         ]);
 
-        if($validator->fails())return redirect()->withErrors($validator);
+        if ($validator->fails()) return redirect()->withErrors($validator);
 
-        if(Book::whereFirst([
-            ['title','=',$validator->valid()['title']],
-            ['author','=',$validator->valid()['author']]
-        ]))
-        return  redirect()->withErrors("this book is already registered");
+     
+        if (Book::firstWhere([
+            ['title', '=', $validator->valid()['title']],
+            ['author', '=', $validator->valid()['author']]
+        ])) {
+            return  redirect('/dashboard')->withErrors("this book is already registered");
+        }
 
-        Book::create($validator->valid());
+
+        Book::create(array_merge($validator->valid(),['cover'=>'book.png']) );
     }
 }
