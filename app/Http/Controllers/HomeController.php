@@ -12,6 +12,7 @@ class HomeController extends Controller
     public function home(Request $req)
     {   
         $acc_type = session("acc_type");
+        if($acc_type == 'admin')return redirect('/dashboard');
         return view('home',compact('acc_type'));
     }
 

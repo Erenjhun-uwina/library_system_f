@@ -11,8 +11,8 @@ Route::redirect('/', 'acc_type_select');
 Route::get('acc_type_select', [Acc_type_select::class, 'index']);
 
 Route::group(['controller'=>HomeController::class,'middleware'=>['auth']],function () {
-    Route::get('home', 'home')->middleware('is_admin:dashboard');
-    Route::get('dashboard','dashboard');
+    Route::get('home', 'home');
+    Route::get('dashboard','dashboard')->middleware('is_admin:home');
 });
 
 Route::get('home/{page?}', [MVDController::class, 'mvd'])->middleware('auth');
