@@ -18,12 +18,10 @@
 
         <form action="/login/{{ $acc_type }}" method="post">
             @csrf
-
+            {{$acc_type}} login
             @if (session('msg'))
                 <span class="success"> {{ session('msg') }} </span>
             @endif
-
-
 
             @include('layout.form_err')
             <input type="text" placeholder='username' name='uname' value='{{ old('uname') }}'><br>
