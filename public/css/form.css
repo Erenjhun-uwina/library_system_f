@@ -5,25 +5,61 @@ css file specific dun
 
 */
 
-.form_con{
+.form_con {
     margin: auto;
     text-align: center;
 }
 
-.form_con form{
+.form_con form {
     background: #89d;
     padding: 2rem;
     width: 80%;
     margin: auto;
 }
 
-.form_con .label{
+.form_con .label {
     font-size: 1.3rem;
     font-weight: bold;
+    padding: .3rem;
 }
 
-.form_con input{
+.form_con input {
     margin: .2rem;
     font-size: 1rem;
     padding: .2rem .3rem;
+}
+
+.form_con input[type=radio] {
+    background: none;
+    display: none;
+}
+
+.form_con .radios {
+    width: 25rem;
+    background: rgb(90, 101, 145);
+    margin: auto;
+    border-radius: 10rem;
+    box-shadow: 0 0 .5rem black;
+    margin-block: .2rem;
+    overflow: hidden;
+    display: flex;
+}
+
+.form_con label {
+    background: white;
+    padding: .3rem 2rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+.form_con label:hover {
+    background: rgb(122, 138, 196);
+}
+
+
+.form_con input[type=radio]:checked+label {
+    background: rgb(90, 101, 145);
+    color: white;
 }

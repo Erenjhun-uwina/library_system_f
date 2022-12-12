@@ -3,7 +3,9 @@
 {{--  dito nio lagay ung mga pauliulit na parts --}}
 
 @section('head')
-    <link rel="stylesheet" href="/css/default.css">
+    @parent
+    {{-- kung may dadag kayo na link for styles dito nio lagay --}}
+    {{-- <link rel="stylesheet" href="/css/default.css"> --}}
 @endsection
 
 @section('body')

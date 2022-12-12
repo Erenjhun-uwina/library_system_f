@@ -12,10 +12,11 @@
         <h1>QCU LIBRARY SYSTEM</h1>
 
 
-        @include('layout.form_err')
+        
 
         <form action="/login/{{ $acc_type }}" method="post">
             @csrf
+            @include('layout.form_err')
             <input type="text" placeholder='username' name='uname' value='{{ old('uname') }}'><br>
             <input type="text" placeholder='password' name='pass'><br>
             <button type="submit">login</button>
