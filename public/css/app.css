@@ -18,7 +18,6 @@ body {
   }
   
   
-
 header {
     background: #c6beb8;
     display: flex;
@@ -34,16 +33,26 @@ header {
     padding: auto;
   }
 
-  form {
+  #form {
     margin: auto;
-    width:50rem;
+    width:10rem;
     padding: 3rem;
     text-align: center;
     background:#e6cdb9;
     margin-top:5rem;
-    border-radius: 30px;
+    border-radius: 0px;
+    gap: 3rem;
     
   }
+
+  .label{
+  font-size: 20rem;
+  font-weight: bold;
+  font-family: italic;
+  color:black;
+
+  }
+
   .logo {
     width: 10rem;
     height: 10rem;
