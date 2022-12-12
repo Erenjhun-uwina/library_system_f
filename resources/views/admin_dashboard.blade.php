@@ -9,10 +9,10 @@
 
 @section('body')
 <button class="tablink" onclick="openPage('Home', this, 'rgb(172, 134, 180);')">Records</button>
-<button class="tablink" onclick="openPage('News', this, 'rgb(172, 134, 180);')" id="defaultOpen">News</button>
+<button class="tablink" onclick="openPage('News', this, 'rgb(172, 134, 180);')" id="defaultOpen">User list</button>
 <button class="tablink" onclick="openPage('Contact', this, 'rgb(172, 134, 180);')">Add Books</button>
 <button class="tablink" onclick="openPage('About', this, 'rgb(172, 134, 180);')">About</button>
-<button class="tablink"> Logout</button>
+<a href="/logout/{{session('id')}}"><button type="button">logout</button></a>
 
 <div id="Home" class="tabcontent">
   <h3>Records</h3>
@@ -20,7 +20,7 @@
 </div>
 
 <div id="News" class="tabcontent">
-  <h3>News</h3>
+  <h3>User list</h3>
   <p>Some news this fine day!</p> 
 </div>
 
@@ -29,7 +29,6 @@
   <p>...</p>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<<<<<<< HEAD
 
 .open-button {
   background-color: #555;
@@ -94,9 +93,8 @@
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
-</style>
-=======
->>>>>>> 30173d6c7e173e2664f0435643c72bd06285ba02
+
+
 
 <button class="open-button" onclick="openForm()">Open Form</button>
 
@@ -153,6 +151,7 @@ function closeForm() {
         the educational community. We develop, organize, provide access to, and preserve
         materials to meet the needs of present and future generations of QCU students.</p>
 </div>
+
 
 <script>
 function openPage(pageName,elmnt,color) {
