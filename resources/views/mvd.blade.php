@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('body')
-
+<link rel="stylesheet" href="/css/mvd.css">
 @section('title')
     {{ $page }}
 @stop
