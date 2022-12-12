@@ -6,8 +6,8 @@
 
 
 
-center{
-    background: linear-gradient(#d9dee4,#d8a5a2);
+body{
+    background: linear-gradient(#d8a5a2,#d9dee4);
     padding:auto;
     height: 100%;
     margin-bottom: 0;
