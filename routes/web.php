@@ -11,13 +11,11 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', 'acc_type_select');
 Route::get('acc_type_select', [Acc_type_select::class, 'index']);
 
-
 Route::controller(HomeController::class)->group(function () {
 
     Route::get('home', 'home')->middleware(['auth', 'is_admin:dashboard']);
     Route::get('dashboard','dashboard');
 });
-
 
 Route::get('home/{page?}', [MVDController::class, 'mvd'])->middleware('auth');
 

@@ -1,50 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layout.metas')
 
-<style>
-* {box-sizing: border-box}
+@section('title','dashboard')
 
-
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial;
-}
-
-.tablink {
-  background-color: #555;
-  color: white;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 10px 10px;
-  font-size: 17px;
-  width: 20%;
-}
-
-.tablink:hover {
-  background-color: rgb(172, 134, 180);;
-}
+@section('head')
+  <link rel="stylesheet" href="/css/dashboard.css">
+@endsection
 
 
-.tabcontent {
-  color: white;
-  display: none;
-  padding: 100px 20px;
-  height: 100%;
-}
-
-#Home {background-color: rgb(172, 134, 180);}
-#News {background-color: rgb(172, 134, 180);}
-#Contact {background-color: rgb(172, 134, 180);}
-#About {background-color: rgb(172, 134, 180);}
-</style>
-</head>
-<body>
-
+@section('body')
 <button class="tablink" onclick="openPage('Home', this, 'rgb(172, 134, 180);')">Records</button>
 <button class="tablink" onclick="openPage('News', this, 'rgb(172, 134, 180);')" id="defaultOpen">News</button>
 <button class="tablink" onclick="openPage('Contact', this, 'rgb(172, 134, 180);')">Add Books</button>
@@ -65,10 +28,8 @@ body, html {
   <h3>Add Books</h3>
   <p>...</p>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
 
+<<<<<<< HEAD
 
 .open-button {
   background-color: #555;
@@ -134,6 +95,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
   opacity: 1;
 }
 </style>
+=======
+>>>>>>> 30173d6c7e173e2664f0435643c72bd06285ba02
 
 <button class="open-button" onclick="openForm()">Open Form</button>
 
@@ -209,5 +172,4 @@ function openPage(pageName,elmnt,color) {
 document.getElementById("defaultOpen").click();
 </script>
    
-</body>
-</html> 
+@stop
