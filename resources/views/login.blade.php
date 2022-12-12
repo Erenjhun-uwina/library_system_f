@@ -23,7 +23,7 @@
 
             @include('layout.form_err')
             <input type="text" placeholder='username' name='uname' value='{{ old('uname') }}'><br>
-            <input type="text" placeholder='password' name='pass'><br>
+            <input type="password" placeholder='password' name='pass'><br>
             <button type="submit">login</button>
             <a href="/register/{{ $acc_type }}"><button type="button">register</button></a>
         </form>
