@@ -15,7 +15,7 @@
 <p>
 
     @switch($page)
-        @case('mission')
+        @case( 'mission')
             To give college students the knowledge they need to learn better and assist them in
             developing the research skills needed for a blended learning environment and to assists
             students and admin staff.

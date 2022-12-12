@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('title','home')
-
+<link rel="stylesheet" href="/css/mvd.css">
 @section('body')
     {{-- add nio lagi ung @parent sa loob ng section(body) para magrender ung parent section pag wala yan 
     ma ooveride ung contents --}}
