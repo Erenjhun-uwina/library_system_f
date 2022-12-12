@@ -30,12 +30,12 @@
   <h3 id="he">Add Books</h3>
 
    <body>
+
  <script>
         <button class="open-button" onclick="openForm()">Open Form</button>
 
         <div class="form-popup" id="myForm">
             <form action="/add_book" class="form-container">
-              
 
                 @csrf
 
@@ -107,6 +107,6 @@ function openPage(pageName,elmnt,color) {
   elmnt.style.backgroundColor = color;
 }
   document.getElementById("defaultOpen").click();
-    </script>
+</script>
 
 @stop
