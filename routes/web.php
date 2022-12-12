@@ -19,7 +19,7 @@ Route::controller(HomeController::class)->group(function () {
 });
 
 
-Route::get('home/{page?}', [MVDController::class, 'mvd']);
+Route::get('home/{page?}', [MVDController::class, 'mvd'])->middleware('auth');
 
 
 Route::controller(AuthController::class)->group(
@@ -28,7 +28,7 @@ Route::controller(AuthController::class)->group(
         Route::post('login/{acc_type?}', 'login');
         Route::get('logout/{id?}', 'logout');
     }
-)->middleware(['auth','valid_acc_type']);
+)->middleware('valid_acc_type');
 
 
 Route::controller(RegisterController::class)->group(function () {
