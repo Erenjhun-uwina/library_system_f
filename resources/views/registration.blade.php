@@ -2,11 +2,13 @@
 
 @section('title')
     {{ $acc_type }} register
+    link rel="stylesheet" href="/css/style.css">
+<link href="/css/app.css" rel="stylesheet">
 @endsection
 
 @section('body')
     @parent
-
+   
     <div class="form_con">
         <h1> QCU LIBRARY SYSTEM </h1>
         <form method="post" action="/register/{{ $acc_type }}">
@@ -22,7 +24,7 @@
             @if ($acc_type == 'borrower')
                 <input type="text" name="id no" placeholder="I.D no (22-0573)" required
                     pattern="([0-9]{2})-([0-9]{4,5})"><br>
-                <input type="text" name="stat" placeholder=" status" required><br>
+                <input type="text" name="borrower" placeholder=" borrower" required><br>
             @endif
             @if ($acc_type != 'admin')
                 <input type="text" name="contact_no" placeholder="contact_no(0912-356-7893)" required
