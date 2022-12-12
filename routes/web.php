@@ -26,6 +26,6 @@ Route::controller(AuthController::class)->group(
 
 
 Route::controller(RegisterController::class)->group(function () {
-
-    Route::get('register/{acc_type?}', 'register_page')->middleware('valid_acc_type');
-});
+    Route::get('register/{acc_type?}', 'register_page');
+    Route::post('register/{acc_type?}', 'register');
+})->middleware('valid_acc_type');

@@ -22,7 +22,7 @@
             <input type="text" name="ln" placeholder="last name" required><br>
 
             @if ($acc_type == 'borrower')
-                <input type="text" name="id no" placeholder="I.D no (22-0573)" required
+                <input type="text" name="id no" placeholder="I.D no (22-0573)" 
                     pattern="([0-9]{2})-([0-9]{4,5})"><br>
                 <input type="text" name="borrower" placeholder=" borrower" required><br>
             @endif
@@ -31,10 +31,7 @@
                     pattern="09([0-9]{9})"> <br>
             @endif
 
-            @if ($acc_type == 'admin')
-                <input type="text" name="uname" placeholder="username" required><br>
-            @endif
-
+            <input type="text" name="uname" placeholder="username" required><br>
             <input type="password" name="pass" placeholder="password" required><br>
             <input type="password" placeholder="Confirm Password" name="confirm_pass" required><br>
 
