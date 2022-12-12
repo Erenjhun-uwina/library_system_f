@@ -32,9 +32,9 @@
         <button class="open-button" onclick="openForm()">Open Form</button>
 
         <div class="form-popup" id="myForm">
-            <form action="register_book" class="form-container">
+            <form action="register_book" method='post' class="form-container">
                 <h1>Login</h1>
-
+                @csrf
                 <label for="booktitle"><b>Book Title</b></label>
                 <input type="text" placeholder="Book Title" name="booktitle" required>
 
