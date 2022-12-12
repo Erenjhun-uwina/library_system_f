@@ -7,36 +7,43 @@
     @parent
 
 
-    <button class="tablink" onclick="openPage('Home', this, 'pink')"> Records</button>
-    <button class="tablink" onclick="openPage('News', this, 'pink')" id="defaultOpen">users</button>
+    <button class="tablink" onclick="openPage('Home', this, 'pink')" id="defaultOpen"> Records</button>
+    <button class="tablink" onclick="openPage('News', this, 'pink')">users</button>
     <button class="tablink" onclick="openPage('Contact', this, 'pink')">Add Book</button>
 
-    <a href="/login/admin"><button id="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></button></a>
+    <a href="logout/{{ session('id') }}"><button id="logout"><i
+                class="fa-solid fa-arrow-right-from-bracket"></i></button></a>
 
     <div id="Home" class="tabcontent">
         <h3 id="he">Records</h3>
 
         @forelse($transactions as $transaction)
             @php
-                
+                $borrower = $transaction->borrower;
+                $book = $transaction->book;
             @endphp
 
-            <div class="user_list"> {{ $transaction->borrower->fn }} {{ $transaction->borrower->ln }} ----
-                book:{{ $$transaction->book->title }} </div>
+            <div class="user_list">{{ $borrower->fn }} {{ $borrower->ln }} --- {{ $book->title }} </div>
+
         @empty
         @endforelse
 
+        <div class="paginator">
+            {{ $transactions->links() }}
+        </div>
     </div>
 
     <div id="News" class="tabcontent">
-        <h3 id="he">users</h3>
+        <h3 id="he">borrowers</h3>
 
-        {{-- @forelse($users as $user)
-        <div class='user_list'>{{$user->fn}} {{$user->ln}}  -----  {{$user->user_type==0?'student':'teacher'}}</div>
-      @empty
-        <div class='user_list'>no users</div>
-      @endforelse --}}
-
+        @forelse($borrowers as $borrower)
+            <div class='user_list'>{{ $borrower->fn }} {{ $borrower->ln }} ----- {{ $borrower->borrower_type }}</div>
+        @empty
+            <div class='user_list'>no users</div>
+        @endforelse
+        <div class="paginator">
+            {{ $borrowers->links() }}
+        </div>
     </div>
 
     <div id="Contact" class="tabcontent">
@@ -116,6 +123,8 @@
     </div>
 
     <script>
+        
+
         function openPage(pageName, elmnt, color) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
@@ -129,6 +138,8 @@
             document.getElementById(pageName).style.display = "block";
             elmnt.style.backgroundColor = color;
         }
+
+        
 
         document.getElementById("defaultOpen").click();
     </script>

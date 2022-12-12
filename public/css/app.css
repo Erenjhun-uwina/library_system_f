@@ -93,3 +93,17 @@ h1 {
   -webkit-text-stroke-color: black;
 }
 
+.paginator{
+  padding: 1rem;
+  background: #c5beb8;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.paginator svg{
+  width:1rem
+}
+.paginator a{
+  margin-inline: 1rem;
+}

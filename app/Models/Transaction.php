@@ -10,12 +10,14 @@ class Transaction extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
+
+
     public function borrower(){
-        return $this->hasOne(Borrower::class,'id');
+        return $this->belongsTo(Borrower::class);
     }
 
     public function book(){
-        return $this->hasOne(Book::class,'id');
+        return $this->belongsTo(Book::class);
     }
-
+   
 }
