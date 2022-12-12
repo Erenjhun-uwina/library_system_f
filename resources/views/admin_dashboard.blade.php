@@ -45,10 +45,15 @@
                 <label for="author"><b>Author</b></label>
                 <input type="text" placeholder="Author" name="author" required>
                 <label for="categpry"><b>Category</b></label>
-                <input type="text" placeholder="Category" name="category" required>
+                <input type="text" placeholder="Category" name="category" id='category' required>
 
                 <label for="daterelease">Date Release:</label>
-                <input type="date" id="daterelease" name="daterelease">
+                <input type="date" id="daterelease" name="date_release" >
+                
+                <label for="cover">cover</label><input type="file" accept='image/*' id='cover' name='cover'>
+
+                <label for="quantity">quantity</label>
+                <input type="number" name="quanity" id="quantity" value='1'>
 
                 <button type="submit" class="btn">Submit</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
