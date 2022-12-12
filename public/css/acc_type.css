@@ -18,14 +18,14 @@ center{
     padding-bottom: 10rem;
 }
 
-.prince {
+.acc_type_header {
     color:white;
     font-size: 6rem;
     margin:.5rem;
     -webkit-text-stroke-width: 1.5px;
-    -webkit-text-stroke-color: black;
-    
+    -webkit-text-stroke-color: black
 }
+
 p{
     color:white;
     font-size: 2rem;
