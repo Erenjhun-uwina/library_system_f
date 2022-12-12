@@ -56,6 +56,8 @@ class RegisterController extends Controller
 
     public function register_book(Request $req,ImageUploader $uploader)
     {
+
+
         $validator = Validator::make($req->all(), [
             'title' => 'required'
         ]);
@@ -70,8 +72,10 @@ class RegisterController extends Controller
             return  redirect('/home')->withErrors("this book is already registered");
         }   
 
-        Book::create(array_merge($validator->valid(), ['cover' => 'book.png']));
-        $uploader->handle($req->file('cover'),'assets/covers/');
 
+        $cover = $uploader->handle($req->file('cover'),'assets/covers/');
+        if(!$cover)redirect('/home')->withErrors("something went wrong uploading book img!");;
+        Book::create(array_merge($validator->valid(), ['cover' => $cover]));
+        return back()->with('msg','success');
     }
 }
