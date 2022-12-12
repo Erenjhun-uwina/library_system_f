@@ -5,37 +5,33 @@
 @section('head')
     <link rel="stylesheet" href="/css/dashboard.css">
     <script src="/js/book_popup" defer></script>
-
 @endsection
 
 
 @section('body')
 
-<button class="tablink" onclick="openPage('Home', this, 'rgb(172, 134, 180);')">Borrowers</button>
-<button class="tablink" onclick="openPage('News', this, 'rgb(172, 134, 180);')" id="defaultOpen">User list</button>
-<button class="tablink" onclick="openPage('Contact', this, 'rgb(172, 134, 180);')">Add Books</button>
-<button class="tablink" onclick="openPage('About', this, 'rgb(172, 134, 180);')">About</button>
+    <button class="tablink" onclick="openPage('Home', this, 'rgb(172, 134, 180);')">Borrowers</button>
+    <button class="tablink" onclick="openPage('News', this, 'rgb(172, 134, 180);')" id="defaultOpen">User list</button>
+    <button class="tablink" onclick="openPage('Contact', this, 'rgb(172, 134, 180);')">Add Books</button>
+    <button class="tablink" onclick="openPage('About', this, 'rgb(172, 134, 180);')">About</button>
 
-<a href="/logout/{{session('id')}}"><button type="button">logout</button></a>
+    <a href="/logout/{{ session('id') }}"><button type="button">logout</button></a>
 
-<div id="Home" class="tabcontent">
-  <h3 id="he">Borrowers</h3>
-</div>
+    <div id="Home" class="tabcontent">
+        <h3 id="he">Borrowers</h3>
+    </div>
 
-<div id="News" class="tabcontent">
-  <h3 id="he">Users</h3>
-</div>
+    <div id="News" class="tabcontent">
+        <h3 id="he">Users</h3>
+    </div>
 
-<div id="Contact" class="tabcontent">
-  <h3 id="he">Add Books</h3>
+    <div id="Contact" class="tabcontent">
+        <h3 id="he">Add Books</h3>
 
-   <body>
- <script>
         <button class="open-button" onclick="openForm()">Open Form</button>
 
         <div class="form-popup" id="myForm">
             <form action="/add_book" class="form-container">
-              
 
                 @csrf
 
@@ -48,8 +44,8 @@
                 <input type="text" placeholder="Category" name="category" id='category' required>
 
                 <label for="daterelease">Date Release:</label>
-                <input type="date" id="daterelease" name="date_release" >
-                
+                <input type="date" id="daterelease" name="date_release">
+
                 <label for="cover">cover</label><input type="file" accept='image/*' id='cover' name='cover'>
 
                 <label for="quantity">quantity</label>
@@ -59,18 +55,6 @@
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </form>
         </div>
-
-      <script>
- document.getElementById("myForm").style.display = "block";{
-}
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-</script>
-
-</body>
-        </html>
-
     </div>
 
     <div id="About" class="tabcontent">
@@ -92,21 +76,27 @@ function closeForm() {
     </div>
 
 
-<script>
-function openPage(pageName,elmnt,color) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].style.backgroundColor = "";
-  }
-  document.getElementById(pageName).style.display = "block";
-  elmnt.style.backgroundColor = color;
-}
-  document.getElementById("defaultOpen").click();
+    <script>
+        document.getElementById("myForm").style.display = "block"; {}
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+
+        function openPage(pageName, elmnt, color) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = color;
+        }
+        document.getElementById("defaultOpen").click();
     </script>
 
 @stop
