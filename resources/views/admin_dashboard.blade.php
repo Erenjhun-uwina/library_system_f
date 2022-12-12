@@ -2,7 +2,6 @@
 
 
 @section('title', 'dashboard')
-
 @section('body')
     @parent
 
