@@ -14,11 +14,11 @@ class Is_Admin
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next,$uri)
     {   
         $is_admin = true;
 
-        if(!$is_admin)return redirect("/login/admin",403);
+        if($is_admin)return redirect("/$uri");
         return $next($request);
     }
 }
