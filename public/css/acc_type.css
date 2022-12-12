@@ -4,16 +4,28 @@
     box-sizing: border-box;
 }
 
-
-
 body{
-    background: linear-gradient(#d8a5a2,#d9dee4);
+    font-weight: bold;
+    background: linear-gradient(#d8a5a2,#72a4e0)
+  
+}
+
+center{
+    background: linear-gradient(#d8a5a2,#72a4e0);
     padding:auto;
     height: 100%;
     margin-bottom: 0;
     padding-bottom: 10rem;
 }
 
+.prince {
+    color:white;
+    font-size: 6rem;
+    margin:.5rem;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: black;
+    
+}
 p{
     color:white;
     font-size: 2rem;
@@ -37,14 +49,7 @@ a:hover{
  background-color:#80669d 
 }
 
-h1{
-    color:white;
-    font-size: 6rem;
-    margin:.5rem;
-    -webkit-text-stroke-width: 1.5px;
-    -webkit-text-stroke-color: black;
-    
-}
+
 
 #btn_con{
     margin-top: 2rem;
