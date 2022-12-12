@@ -6,6 +6,7 @@
 @section('body')
     @parent
 
+
     <button class="tablink" onclick="openPage('Home', this, 'pink')"> Records</button>
     <button class="tablink" onclick="openPage('News', this, 'pink')" id="defaultOpen">users</button>
     <button class="tablink" onclick="openPage('Contact', this, 'pink')">Add Book</button>
