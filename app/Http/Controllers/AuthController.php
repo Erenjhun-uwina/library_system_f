@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Is_loged;
 use App\Models\Admin;
 use App\Models\Borrower;
 use Illuminate\Http\Request;
@@ -9,12 +10,12 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    public function login_page(Request $req)
+    public function login_page(Request $req,Is_loged $is_loged)
     {
         $acc_type = trim($req->acc_type) ?: 'borrower';
 
-        // if the user is already logged in redirect to home
-        if (session('id') and session('acc_type') == $acc_type) return redirect("home");
+        # if the user is already logged in redirect to home
+        if($is_loged->handle($req))return redirect("home");
 
         return view('login', compact('acc_type'));
     }
@@ -31,7 +32,7 @@ class AuthController extends Controller
     {
 
         $acc_type = $req->acc_type;
-
+        
         $validator = Validator::make($req->all(), [
             'uname' => 'required',
             'pass' => 'required'

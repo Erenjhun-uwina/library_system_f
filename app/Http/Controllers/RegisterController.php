@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\Get_Model;
+use App\Models\Book;
 use App\Services\ModelService;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -50,14 +49,24 @@ class RegisterController extends Controller
 
         if ($acc) return redirect('register/' . $acc_type)->withErrors('this user is already regitered');
         
-        $this->store_acc($model,$inputs);
-
+        $model::create($inputs);
         return redirect("login/$acc_type")->with('msg','register success');
     }
 
-    private function store_acc($model,$inputs)
+    public function register_book(Request $req,ModelService $modelService)
     {
-        $model::create($inputs);
+        $validator = Validator::make($req->all(),[
+
+        ]);
+
+        if($validator->fails())return redirect()->withErrors($validator);
+
+        if(Book::whereFirst([
+            ['title','=',$validator->valid()['title']],
+            ['author','=',$validator->valid()['author']]
+        ]))
+        return  redirect()->withErrors("this book is already registered");
+
+        Book::create($validator->valid());
     }
-   
 }
