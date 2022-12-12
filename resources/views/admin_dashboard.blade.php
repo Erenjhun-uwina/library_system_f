@@ -8,50 +8,17 @@
 
 
 @section('body')
-<<<<<<< HEAD
-<button class="tablink" onclick="openPage('Home', this, 'rgb(172, 134, 180);')">Records</button>
-<button class="tablink" onclick="openPage('News', this, 'rgb(172, 134, 180);')" id="defaultOpen">User list</button>
-<button class="tablink" onclick="openPage('Contact', this, 'rgb(172, 134, 180);')">Add Books</button>
-<button class="tablink" onclick="openPage('About', this, 'rgb(172, 134, 180);')">About</button>
-<a href="/logout/{{session('id')}}"><button type="button">logout</button></a>
-=======
     <button class="tablink" onclick="openPage('Home', this)">Records</button>
     <button class="tablink" onclick="openPage('News', this)" id="defaultOpen">News</button>
     <button class="tablink" onclick="openPage('Contact', this)">Add Books</button>
     <button class="tablink" onclick="openPage('About', this)">About</button>
     <button class="tablink"> Logout</button>
->>>>>>> b5227282afd3f3083bf929e619985bfbb5baec2c
 
     <div id="Home" class="tabcontent">
         <h3>Records</h3>
         <p>...</p>
     </div>
 
-<<<<<<< HEAD
-<div id="News" class="tabcontent">
-  <h3>User list</h3>
-  <p>Some news this fine day!</p> 
-</div>
-
-<div id="Contact" class="tabcontent">
-  <h3>Add Books</h3>
-  <p>...</p>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-.open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-}
-=======
     <div id="News" class="tabcontent">
         <h3>News</h3>
         <p>Some news this fine day!</p>
@@ -60,7 +27,6 @@
     <div id="Contact" class="tabcontent">
         <h3>Add Books</h3>
         <p>...</p>
->>>>>>> b5227282afd3f3083bf929e619985bfbb5baec2c
 
 
         <button class="open-button" onclick="openForm()">Open Form</button>
@@ -96,15 +62,7 @@
             }
         </script>
 
-<<<<<<< HEAD
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
-}
-
-
-=======
         </body>
->>>>>>> b5227282afd3f3083bf929e619985bfbb5baec2c
 
         </html>
 
