@@ -1,10 +1,13 @@
 @extends('layout.metas')
 
+@section('head')
+    <link rel="stylesheet" href="/css/login.css">
+@endsection
+
 @section('title')
     {{ $acc_type }} register
-    link rel="stylesheet" href="/css/style.css">
-    <link href="/css/app.css" rel="stylesheet">
 @endsection
+
 
 @section('body')
     @parent
@@ -22,7 +25,7 @@
             <input type="text" name="ln" placeholder="last name" required><br>
 
             @if ($acc_type == 'borrower')
-                <input type="text" name="id no" placeholder="I.D no (22-0573)" pattern=""><br>
+                <input type="text" name="id no" placeholder="I.D no (22-0573)" ><br>
 
                 <div class="radios">
                     <input type="radio" name="borrower_type" id="student_t" checked><label for="student_t" >student</label>

@@ -4,8 +4,6 @@
 
 @section('head')
     @parent
-    {{-- kung may dadag kayo na link for styles dito nio lagay --}}
-    {{-- <link rel="stylesheet" href="/css/default.css"> --}}
 @endsection
 
 @section('body')

@@ -2,6 +2,9 @@
 
 namespace App\Services;
 
+use App\Models\Admin;
+use App\Models\Borrower;
+
 /**
  *  provides methods for model actions
  */
@@ -16,5 +19,6 @@ class ModelService
     public static function exist($model,string $field,string $val)
     {
         return $model::firstWhere($field, $val);
+    
     }
 }

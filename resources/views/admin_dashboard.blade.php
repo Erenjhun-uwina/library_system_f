@@ -53,12 +53,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <body>
-
             <button class="open-button" onclick="openForm()">Open Form</button>
 
             <div class="form-popup" id="myForm">
                 <form action="/add_book" method="POST" class="form-container">
-
                     @csrf
 
                     @if ($errors->any())
