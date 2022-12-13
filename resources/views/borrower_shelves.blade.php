@@ -1,8 +1,6 @@
 @extends('layout.shelves')
 
 
-
-
 <!DOCTYPE html>
 <html>
 

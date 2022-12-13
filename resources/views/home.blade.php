@@ -15,6 +15,11 @@
 
     <main>
 
+        <form action="/search" method='post'>
+            @csrf
+            <input id="search" type="text" placeholder="Search"  name="bookbook" >
+        </form>
+
         <div class="shelves">
             <section class="book" data-author="DR. B. Kumar">
                 <img src="https://static.kopykitab.com/image/cache/data/khanna-publisher/kp0263-300x380.jpg" alt="">

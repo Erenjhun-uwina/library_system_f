@@ -19,10 +19,16 @@
 
     <div id="Home" class="tabcontent">
         <h3 id="he">Borrowers</h3>
+        <h5 class= "name"> Padauan - 22-0590 - book na hiniram ko - kealn isasauli- hold ang credentials </h5>
+        <h5 class= " name"> Padauan - 22-0590 - book na hiniram ko - kealn isasauli- hold ang credentials </h5>
+        <h5 class= " name"> Padauan - 22-0590 - book na hiniram ko - kealn isasauli- hold ang credentials </h5>
     </div>
 
     <div id="News" class="tabcontent">
         <h3 id="he">Users</h3>
+        <h5 class= "name"> Padauan - 22-0590 - admin</h5>
+        <h5 class= "name"> Padauan - 22-0590 - teacher</h5>
+        <h5 class= "name"> Padauan - 22-0590 - student </h5>
     </div>
 
     <div id="Contact" class="tabcontent">
