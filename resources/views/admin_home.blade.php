@@ -20,7 +20,6 @@
 
     <div id="Home" class="tabcontent">
         <h3 id="he">Borrowers</h3>
-
         <div class="results">
             <table>
                 <tr>
@@ -41,8 +40,6 @@
                 @endforelse
             </table>
         </div>
-
-
     </div>
 
     <div id="Users" class="tabcontent">
