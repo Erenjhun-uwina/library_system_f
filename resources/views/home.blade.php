@@ -15,6 +15,11 @@
 
     <main>
 
+        <form action="/search" method='post'>
+            @csrf
+            <input id="search" type="text" placeholder="Search"  name="bookbook" >
+        </form>
+
         <div class="shelves">
             <section class="book" data-author="Telugu q " data-img="https://img.wattpad.com/cover/110882832-256-k508756.jpg"
                 data-description="shift na next sem "> <img src="" alt=""></section>
