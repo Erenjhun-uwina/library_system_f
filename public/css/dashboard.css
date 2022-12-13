@@ -35,7 +35,7 @@ body, html {
 #he {
   font-size:3.5rem;
   font-weight: bold;
-  font-family:  'Times New Roman';
+  font-family:monospace;
   color:black;
   margin: 1rem;
   }
@@ -44,14 +44,16 @@ body, html {
   font-weight: bold;
   font-size: 1.8rem;
   font-family: 'Courier New';
-  color: cornsilk;
+  color:brown;
+  margin: 1.2rem;
 }
 
-#name{
+.name{
   font-weight: bold;
   font-size: 1.8rem;
-  font-family: 'Courier New';
-  color: cornsilk;
+  font-family:cursive;
+  background-color: black;
+  color:white ;
   margin: 2rem;
   gap: 2rem;
 }
