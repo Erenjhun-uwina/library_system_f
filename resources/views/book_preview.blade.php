@@ -5,6 +5,7 @@
 @section('head')
     @parent
     <link rel="stylesheet" href="/css/bookshelf.css">
+    
 @endsection
 
 
@@ -19,7 +20,7 @@
         <P>release date:{{$book->date_release}}</p>
         <p>categoty:{{$book->category}}</p>
 
-
+        <form action="/request" method="post"></form>
     </div>
 
 @endsection

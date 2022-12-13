@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         
         if(Admin::all()->count()==0)Admin::factory(1)->create();
         if(Borrower::all()->count()<30)Borrower::factory(15)->create();
-        if(Book::all()->count()==0)Book::factory(50)->create();
+        if(Book::all()->count()<50)Book::factory(50)->create();
         if(Transaction::all()->count()==0)Transaction::factory(100)->create();
    
     }

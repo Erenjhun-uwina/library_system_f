@@ -13,23 +13,24 @@ body, html {
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 10px 15px;
+  padding-block:2rem ;
   font-size: 17px;
-  width: 25%;
+  width: 20%;
 }
 
 .tablink:hover {
-  background-color: rgb(172, 134, 180);;
+  background-color: #333;
 }
 
 /* Style the tab content (and add height:100% for full page content) */
 .tabcontent {
-  color: white;
+  color: black;
   display: none;
-  padding: 100px 20px;
+  padding-inline:1rem;
   height: 100%;
   background-color: rgb(172, 134, 180);
 }
+
 
 #he {
   font-size:3.5rem;
@@ -55,3 +56,52 @@ body, html {
   gap: 2rem;
 }
 
+.results{
+  overflow-y:auto;
+  height: 69%;
+}
+
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th{
+  background: rgb(84, 63, 89); 
+  font-size: 1.5rem;
+  color: white;
+  text-align: left;
+  padding:.5rem ;
+  position: sticky;
+  top: 0;
+  border: none;
+}
+
+
+tr{
+  background: rgb(193, 149, 202);
+  border-bottom: .1rem solid #333;
+}
+
+tr:hover{
+  background: rgb(122, 94, 128);
+  color: white;
+}
+tr:hover td a{
+  color: white;
+}
+
+
+td{
+  padding:.5rem ;
+}
+
+td a{
+  text-decoration: none;
+  color:black;
+}
+
+td a:hover{
+  text-decoration: underline;
+}

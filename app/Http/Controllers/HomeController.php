@@ -16,13 +16,16 @@ class HomeController extends Controller
         
 
         if ($acc_type == 'admin') {
+
             $transactions = Transaction::with(['book', 'borrower'])->simplePaginate(20, ['borrower_id', 'book_id'], 'records');
-            $borrowers = Borrower::Paginate(20, ['*'], 'borrowers');
+            
+            $borrowers = Borrower::Paginate(2, ['*'], 'borrowers');
             $books = Book::simplePaginate(20);
-            return view('admin_home', compact('transactions', 'borrowers','books'));
+            $transactions = Transaction::all();
+
+            return view('admin_home', compact('transactions', 'borrowers','books','transactions'));
         }
 
-        
         $books = Book::paginate(14);
 
         return view('home', compact('acc_type','books'));

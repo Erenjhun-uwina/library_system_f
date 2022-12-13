@@ -19,7 +19,7 @@ class BookFactory extends Factory
     public function definition()
     {
         return [
-            'title' => fake()->title(),
+            'title' => fake()->sentence(rand(3,6)),
             'author' => fake()->name(),
             'date_release' => fake()->date('m-d-Y'),
             'category' => 'test',

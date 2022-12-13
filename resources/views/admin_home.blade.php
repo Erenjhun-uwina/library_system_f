@@ -3,6 +3,7 @@
 @section('title', 'dashboard')
 
 @section('head')
+    {{-- @parent --}}
     <link rel="stylesheet" href="/css/dashboard.css">
     <script src="/js/book_popup" defer></script>
 @endsection
@@ -10,25 +11,63 @@
 
 @section('body')
 
-    <button class="tablink" onclick="openPage('Home', this, 'rgb(172, 134, 180);')">Borrowers</button>
-    <button class="tablink" onclick="openPage('News', this, 'rgb(172, 134, 180);')" id="defaultOpen">User list</button>
-    <button class="tablink" onclick="openPage('Contact', this, 'rgb(172, 134, 180);')">Add Books</button>
-    <button class="tablink" onclick="openPage('About', this, 'rgb(172, 134, 180);')">About</button>
+    <button class="tablink" onclick="openPage('Home', this)" id="defaultOpen">Borrowers</button>
+    <button class="tablink" onclick="openPage('Users', this)">User list</button>
+    <button class="tablink" onclick="openPage('Contact', this)">Add Books</button>
+    <button class="tablink" onclick="openPage('About', this)">About</button>
 
-    <a href="/logout/{{ session('id') }}"><button type="button">logout</button></a>
+    <a href="/logout/{{ session('id') }}"><button type="button" class='tablink'>logout</button></a>
 
     <div id="Home" class="tabcontent">
         <h3 id="he">Borrowers</h3>
-        <h5 class= "name"> Padauan - 22-0590 - book na hiniram ko - kealn isasauli- hold ang credentials </h5>
-        <h5 class= " name"> Padauan - 22-0590 - book na hiniram ko - kealn isasauli- hold ang credentials </h5>
-        <h5 class= " name"> Padauan - 22-0590 - book na hiniram ko - kealn isasauli- hold ang credentials </h5>
+
+        <div class="results">
+            <table>
+                <tr>
+                    <th>full name</th>
+                    <th>book</th>
+                    <th>status</th>
+                </tr>
+                @forelse ($transactions as $transaction)
+                    <tr>
+                        <td>{{ $transaction->borrower->fn }} {{ $transaction->borrower->ln }}</td>
+                        <td><a href="/book_preview/{{$transaction->book_id}}"> {{ $transaction->book->title }}</a></td>
+                        <td>{{ $transaction->status }}</td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td>no borrower</td>
+                    </tr>
+                @endforelse
+            </table>
+        </div>
+
+
     </div>
 
-    <div id="News" class="tabcontent">
+    <div id="Users" class="tabcontent">
         <h3 id="he">Users</h3>
-        <h5 class= "name"> Padauan - 22-0590 - admin</h5>
-        <h5 class= "name"> Padauan - 22-0590 - teacher</h5>
-        <h5 class= "name"> Padauan - 22-0590 - student </h5>
+
+        <div class="results">
+            <table>
+                <tr>
+                    <th>full name</th>
+                    <th>status</th>
+                </tr>
+                @forelse ($borrowers as $borrower)
+                    <tr>
+                        <td>{{ $borrower->fn }} {{ $borrower->ln }}</td>
+                        <td>lmao</td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td>no users</td>
+                    </tr>
+                @endforelse
+            </table>
+        </div>
+
+
     </div>
 
     <div id="Contact" class="tabcontent">
@@ -91,8 +130,9 @@
         }
 
         function openPage(pageName, elmnt, color) {
-            var i, tabcontent, tablinks;
+            let i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
+
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
@@ -101,7 +141,7 @@
                 tablinks[i].style.backgroundColor = "";
             }
             document.getElementById(pageName).style.display = "block";
-            elmnt.style.backgroundColor = color;
+            elmnt.style.backgroundColor = ' rgb(172, 134, 180)';
         }
         document.getElementById("defaultOpen").click();
     </script>

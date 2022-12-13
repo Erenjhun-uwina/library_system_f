@@ -4,6 +4,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MVDController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TransactionController;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,7 +19,6 @@ Route::group(['controller'=>HomeController::class,'middleware'=>['auth']],functi
 });
 
 Route::get('home/{page?}', [MVDController::class, 'mvd'])->middleware('auth');
-
 
 Route::group(['controller'=>AuthController::class,'middleware'=>'valid_acc_type'],
     function () {
@@ -36,4 +37,8 @@ Route::controller(RegisterController::class)->group(function () {
     });
    
     Route::post('register_book','register_book');
+});
+
+Route::group(['controller'=>TransactionController::class,'middle'=>'auth'],function(){
+    Route::post('borrow/{book_id}','borrow');
 });
