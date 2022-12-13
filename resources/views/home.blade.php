@@ -4,68 +4,51 @@
 
 @section('head')
     @parent
-    <link rel="stylesheet" href="/css/mvd.css">
     <link rel="stylesheet" href="/css/bookshelf.css">
 @endsection
 
+
+
 @section('body')
-    {{-- add nio lagi ung @parent sa loob ng section(body) para magrender ung parent section pag wala yan 
-    ma ooveride ung contents --}}
+
     @parent
 
     <main>
+        @forelse (array_chunk($books->items(),7) as $bookk)
+            <div class="shelves">
+                @php
+                    $max = 7;
+                    $counter = 0;
+                @endphp
 
-        <form action="/search" method='post'>
-            @csrf
-            <input id="search" type="text" placeholder="Search"  name="bookbook" >
-        </form>
+                @foreach ($bookk as $book)
+                    @php($counter++)
 
-        <div class="shelves">
-            <section class="book" data-author="DR. B. Kumar">
-                <img src="https://static.kopykitab.com/image/cache/data/khanna-publisher/kp0263-300x380.jpg" alt="">
-            </section>
-            <section class="book">
-                <img src="https://images.interestingengineering.com/img/iea/3gG998vaGV/marks-handbook.jpg" alt="">
-            </section>
-            <section class="book" data-author="DR. B. Kumar">
-                <img src="https://static.kopykitab.com/image/cache/data/khanna-publisher/kp0263-300x380.jpg" alt="">
-            </section>
-            <section class="book">
-                <img src="https://images.interestingengineering.com/img/iea/3gG998vaGV/marks-handbook.jpg" alt="">
-            </section>
 
-            <section class="book" data-author="DR. B. Kumar">
-                <img src="https://static.kopykitab.com/image/cache/data/khanna-publisher/kp0263-300x380.jpg" alt="">
-            </section>
-            <section class="book">
-                <img src="https://images.interestingengineering.com/img/iea/3gG998vaGV/marks-handbook.jpg" alt="">
-            </section>
-        </div>
+                    <section class="book">
+                        <a href="/book_preview/{{$book->id}}">
+                            <img src="assets/covers/{{ $book->cover }}" alt="">
+                        </a>
+                    </section>
+                @endforeach
 
-        <div class="shelves">
-            <section class="book" data-author="DR. B. Kumar">
-                <img src="https://static.kopykitab.com/image/cache/data/khanna-publisher/kp0263-300x380.jpg" alt="">
-            </section>
-            <section class="book">
-                <img src="https://images.interestingengineering.com/img/iea/3gG998vaGV/marks-handbook.jpg" alt="">
-            </section>
-            <section class="book" data-author="DR. B. Kumar">
-                <img src="https://static.kopykitab.com/image/cache/data/khanna-publisher/kp0263-300x380.jpg" alt="">
-            </section>
-            <section class="book">
-                <img src="https://images.interestingengineering.com/img/iea/3gG998vaGV/marks-handbook.jpg" alt="">
-            </section>
+                @while ($counter < $max)
+                    @php($counter++)
+                    <section class="book">
+                    </section>
+                @endwhile
 
-            <section class="book" data-author="DR. B. Kumar">
-                <img src="https://static.kopykitab.com/image/cache/data/khanna-publisher/kp0263-300x380.jpg" alt="">
-            </section>
-            <section class="book">
-                <img src="https://images.interestingengineering.com/img/iea/3gG998vaGV/marks-handbook.jpg" alt="">
-            </section>
-        </div>
-        </div>
+            </div>
+        @empty
+            <div>no results</div>
+        @endforelse
 
+        <section class='paginator'>
+            {{ $books->links() }}
+            <a id="lim" href="/logout/adasdsa">Logout</a>
+        </section>
     </main>
 
-    <a href="/logout/{{ session('id') }}"> temporary logout('for testing ng logout')</a>
+
+
 @endsection

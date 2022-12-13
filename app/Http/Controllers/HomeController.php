@@ -14,13 +14,31 @@ class HomeController extends Controller
     {
         $acc_type = session("acc_type");
         
+
         if ($acc_type == 'admin') {
             $transactions = Transaction::with(['book', 'borrower'])->simplePaginate(20, ['borrower_id', 'book_id'], 'records');
             $borrowers = Borrower::Paginate(20, ['*'], 'borrowers');
             $books = Book::simplePaginate(20);
-            return view('admin_home', compact('transactions', 'borrowers'));
+            return view('admin_home', compact('transactions', 'borrowers','books'));
         }
-        return view('home', compact('acc_type'));
+
+        
+        $books = Book::paginate(14);
+
+        return view('home', compact('acc_type','books'));
+    }
+
+    public function book_preview(Request $req)
+    {       
+        $book_id = $req->book_id;
+        $book = Book::find($book_id);
+
+        return view('book_preview',compact('book'));
+    }
+
+    public function book_shelf(Request $req)
+    {
+        return view ('book_shelf');
     }
 
 

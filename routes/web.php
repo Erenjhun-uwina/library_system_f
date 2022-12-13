@@ -12,6 +12,8 @@ Route::get('acc_type_select', [Acc_type_select::class, 'index']);
 
 Route::group(['controller'=>HomeController::class,'middleware'=>['auth']],function () {
     Route::get('home', 'home');
+    Route::get('book_preview/{book_id}','book_preview');
+    Route::get('book_shelf','book_shelf');
 });
 
 Route::get('home/{page?}', [MVDController::class, 'mvd'])->middleware('auth');

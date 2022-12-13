@@ -10,25 +10,26 @@
     <header>
         <img class="logo" id='qcu' src="https://upload.wikimedia.org/wikipedia/en/1/11/QCU_Logo_2019.png"
             alt="">
+            <h1> Library </h1>
         <img class="logo" id="qc" src="http://www.geocities.ws/qcpu2grivera/images/qcgov.png" alt="">
-       
-
     </header>
 
-    <div id="btn_con">
-        <a href="/home"> <button id="home">
-                <i class="fa-solid fa-house-chimney"></i> HOME</button></a>
-        <a href="/books"><button id="book">BOOKS</button></a>
-       
+    <nav id='topnav'>
+
+        <a href="/home">
+            <i class="fa-solid fa-house-chimney"></i> HOME
+        </a>
+
+        <a href="/book_shelf">BOOKS</a>
+        <a id="description_btn" href="/home/description"> DESCRIPTION</a>
+        <a id="mission_btn" href="/home/mission">MISSION</a>
+        <a id="vision_btn" href="/home/vision">VISION</a>
 
 
-        <div id="about_con">
-            <button id="about"><i class="fa-solid fa-circle-info"></i> ABOUT<i class="fa fa-caret-down"></i></button>
-            <div id="about_dropdown">
-                <a id="description_btn" href="/home/description" > Description</a>
-                <a id="mission_btn" href = "/home/mission">Mission</a>
-                <a id="vision_btn" href = "/home/vision">Vision</a>
-                <a button id="logout"> <i class="fa-solid fa-right-from-bracket"></i></a>
-            </div>
+        <div id='search_con'>
+            <form action="/home" id="search">
+                <input type="text" placeholder="Search" name="search">
+            </form>
         </div>
+    </nav>
 @endsection
