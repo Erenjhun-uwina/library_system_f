@@ -19,15 +19,14 @@ class HomeController extends Controller
 
             $transactions = Transaction::with(['book', 'borrower'])->simplePaginate(20, ['borrower_id', 'book_id'], 'records');
             
-            $borrowers = Borrower::Paginate(20, ['*'], 'borrowers');
-            $books = Book::simplePaginate(20);
+            $borrowers = Borrower::all();
+            $books = Book::all();
             $transactions = Transaction::all();
 
-            return view('admin_home', compact('transactions', 'borrowers','books','transactions'));
+            return view('admin_home', compact('transactions', 'borrowers','transactions'));
         }
 
         $books = Book::paginate(14);
-
         return view('home', compact('acc_type','books'));
     }
     
