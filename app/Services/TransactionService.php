@@ -18,15 +18,12 @@ class TransactionService
         $book_id = $req->book_id;
         $borrwer_id = session('id');
 
-        $transaction = Transaction::where('borrower_id', $borrwer_id)
-        ->whereIn('status',['pending','approved']);
+        $transaction = Transaction::where('borrower_id', $borrwer_id);
 
         
-
-        if ($transaction->count() >= 2) {
+        if ($transaction->whereIn('status',['pending','approved'])->count() >= 2) {
             $response['err'] = "You can only borrow up to 2 books.";
-        } else
-        if ($transaction->where('book_id', $book_id)->first()) {
+        } else if ($transaction->where('book_id', $book_id)->first()) {
             $response['err'] = "You already have borrowed this book.";
         }
 

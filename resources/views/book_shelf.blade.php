@@ -62,7 +62,7 @@
                         <th>BOOK</th>
                         <th>DATE BORROWED</th>
                     </tr>
-                    @forelse ($borrower->transaction->where('status','borrowed') as $transaction)
+                    @forelse ($borrower->transaction->where('status','approved') as $transaction)
                         <tr>
                             <td><a href="/book_preview/{{ $transaction->book_id }}"> {{ $transaction->book->title }}</a>
                             </td>
