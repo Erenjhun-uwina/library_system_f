@@ -7,7 +7,6 @@ use App\Http\Controllers\MVDController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TransactionController;
-use App\Models\Transaction;
 use Illuminate\Support\Facades\Route;
 
 
