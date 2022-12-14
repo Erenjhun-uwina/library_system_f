@@ -21,8 +21,6 @@
             @include('layout.form_err')
             @include('layout.form_msg')
 
-            <br>
-
             <p>{{ $book->title }}</p>
             <p>Author:{{ $book->author }}</p>
             <P>release date:{{ $book->date_release }}</p>
