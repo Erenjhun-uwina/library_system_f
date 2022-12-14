@@ -78,7 +78,7 @@
                             <th colspan=2>BORROWED</th>
                         </tr>
                     </thead>
-                    <tr>
+                    <tr class="sh">
                         <th>BOOK</th>
                         <th>DATE BORROWED</th>
                     </tr>

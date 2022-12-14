@@ -21,7 +21,15 @@ table{
 
 th{
     background:rgb(66, 50, 70);
-    font-size: 1rem;
+    font-size: 1.6rem;
+    color: black;
+    font-family: 'Lucida Sans';
+    width: 30vw;
+    margin: auto;
+    padding:1rem;
+  
+  
+
 }
 
 thead th{
@@ -29,17 +37,32 @@ thead th{
     font-size: 1.7rem;
     font-weight: bold;
     text-align: center;
-    background:rgb(84, 63, 89)
+    background:rgb(84, 63, 89);
+ 
+   
+}
+tbody{
+   background-color: gray;
+    font-size: 1.6rem;
+    font-weight: bold;
+    font-family: 'Times New Roman';
+
+  
 }
 
 .book{
     flex-direction: column;
     background: #555;
+  
+
 }
 
 .results{
     margin: 0;
     width: 10rem;
+    color:white;
+    font-size: 1.3rem;
+   
 }
 
 
@@ -48,13 +71,21 @@ thead th{
     margin: .5rem;
     width: auto;
     flex-direction: row;
+    
 }
 
 #borrower_details{
     text-align: left;
+
 }
 
 #borrower_details tr:hover{
     background: rgb(193, 149, 202);
     color: #333;
 }
+
+#tr{
+    color: white;
+    font-size: 1rem;
+}
+ 
