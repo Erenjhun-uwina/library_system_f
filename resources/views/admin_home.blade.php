@@ -11,12 +11,17 @@
 
 @section('body')
 
-    <button class="tablink" onclick="openPage('Home', this)" id="defaultOpen">Borrowers</button>
-    <button class="tablink" onclick="openPage('Users', this)">User list</button>
-    <button class="tablink" onclick="openPage('Contact', this)">Add Books</button>
-    <button class="tablink" onclick="openPage('About', this)">About</button>
+    <button class="tablink" onclick="openPage('Home', this)" id="defaultOpen">BORROWERS</button>
+    <button class="tablink" onclick="openPage('Users', this)">Users LIST</button>
+    <button class="tablink" onclick="openPage('Contact', this)">ADD BOOKS</button>
+    <button class="tablink" onclick="openPage('About', this)">ABOUT</button>
 
-    <a href="/logout/{{ session('id') }}"><button type="button" class='tablink'>logout</button></a>
+    <form action="/search" method='post'>
+        @csrf
+        <input id="search" type="text" placeholder="Search"  name="bookkoo" >
+</form>
+
+    <a href="/logout/{{ session('id') }}"><button type="button" class='tablink'>LOGOUT</button></a>
 
     <div id="Home" class="tabcontent">
         <h3 id="he">Borrowers</h3>
