@@ -4,9 +4,11 @@
 
 
 @section('head')
-    <link rel="stylesheet" href="/css/dashboard.css">
+    
     @parent
     <link rel="stylesheet" href="/css/shelve.css">
+    
+    <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="stylesheet" href="/css/profile.css">
 @stop
 
@@ -14,13 +16,12 @@
 
     @parent
 
-    <div class="shelf_con">
+    <div class="con">
         <section class="book">
             <span>{{ $borrower->fn }} {{ $borrower->ln }} <br> {{ $borrower->id_no }}</span>
         </section>
 
         <section class="book">
-            <h3 id="he">Borrowers</h3>
             <div class="results">
                 <table>
                     <tr>

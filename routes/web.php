@@ -43,7 +43,7 @@ Route::controller(RegisterController::class)->group(function () {
 
 Route::group(['controller' => TransactionController::class, 'middle' => 'auth'], function () {
 
-    Route::get('transaction', 'transaction')->middleware('is_admin');
+    Route::get('transaction/{transaction_id}', 'transaction')->middleware('is_admin');
 
     Route::post('borrow', 'borrow');
     Route::post('cancel', 'cancel');

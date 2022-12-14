@@ -21,11 +21,12 @@
             <a id="description_btn" href="/home/description"> DESCRIPTION</a>
             <a id="mission_btn" href="/home/mission">MISSION</a>
             <a id="vision_btn" href="/home/vision">VISION</a>
-        @else
-            <a href="/home">  <i class="fa-solid fa-arrow-left"></i> BACK</a>
-           
+        
+        
+        
+        @elseif (request()->segment(1) != 'home')
+                <a href="/home">  <i class="fa-solid fa-arrow-left"></i> BACK</a>
         @endif
-
 
         <div id='search_con'>
             <form action="/home" id="search">
