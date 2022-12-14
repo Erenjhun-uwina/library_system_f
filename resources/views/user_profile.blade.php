@@ -17,12 +17,23 @@
 
     <section class="book" id='borrower_details'>
         <table>
-            <tr>
-                
-                <td>ID: {{ $borrower->id_no }}</td>
-                <td>NAME:{{ $borrower->fn }} {{ $borrower->ln }}</td>
             
+            <tr>
+                <th colspan=3>DETAILS</th>
             </tr>
+            <tr>
+                <td>ID : {{ $borrower->id_no }}</td>
+                <td>NAME : {{ strtoupper($borrower->fn) }} {{ strtoupper($borrower->ln) }}</td>
+                <td>BORROWER TYPE : {{ strtoupper($borrower->borrower_type) }}</td>
+            </tr>
+            <tr>
+                <th colspan=3>CONTACT DETAILS</th>
+            </tr>
+            <tr>
+                <td colspan=2>EMAIL : {{ $borrower->email }}</td>
+                <td>NO : {{ $borrower->contact_no }}</td>
+            </tr>
+
         </table>
     </section>
 

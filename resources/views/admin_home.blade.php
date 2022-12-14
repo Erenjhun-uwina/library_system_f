@@ -49,11 +49,13 @@
                 <table>
                     <tr>
                         <th>NAME</th>
+                        <th>TYPE</th>
                         <th>STATUS</th>
                     </tr>
                     @forelse ($borrowers as $borrower)
                         <tr>
                             <td><a href="/user_profile/{{$borrower->id}}">{{ $borrower->fn }} {{ $borrower->ln }}</a></td>
+                            <td>{{$borrower->borrower_type}}</td>
                             <td>lmao</td>
                         </tr>
                     @empty
