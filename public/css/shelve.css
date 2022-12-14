@@ -26,8 +26,9 @@
 }
 
 .book span{
-    background: yellow;
+    background: rgb(235, 198, 198);
     width: 100%;
+    color: black;
 }
 
 .book img{
@@ -44,7 +45,4 @@
     color: white;
     -webkit-text-stroke-width: 1.6px;
     -webkit-text-stroke-color: black;
-  
-
-
 }
