@@ -1,21 +1,33 @@
-
-/* Set height of body and the document to 100% */
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial;
+body{
+  background: #333;
 }
-/* Style tab links */
+
+#dashboard_con{
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+nav{
+  background: #333;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  font-size: 2rem;
+}
+
 .tablink {
   background-color: #555;
   color: white;
-  float: left;
   border: none;
-  outline: none;
+  border-radius: 0;
+  display: block;
   cursor: pointer;
-  padding-block:2rem ;
-  font-size: 17px;
-  width: 20%;
+
+  padding-block:2rem;
+  width: 100%;
+  margin: 0;
 }
 
 .tablink:hover {
@@ -27,10 +39,15 @@ body, html {
   color: black;
   display: none;
   padding-inline:1rem;
+<<<<<<< HEAD
   height: 60vw;
+=======
+  padding-block:0 ;
+>>>>>>> b6070a6b0d262829c0d366f053cf88f90393bc4c
   background-color: rgb(172, 134, 180);
+  width: 100%;
+  overflow: auto;
 }
-
 
 #he {
   font-size:3.5rem;
@@ -67,13 +84,13 @@ body, html {
 table{
   width: 100%;
   border-collapse: collapse;
+  text-align: justify;
 }
 
 th{
   background: rgb(84, 63, 89); 
   font-size: 1.5rem;
   color: white;
-  text-align: left;
   padding:.5rem ;
   position: sticky;
   top: 0;

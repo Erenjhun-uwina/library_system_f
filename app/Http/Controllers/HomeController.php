@@ -19,7 +19,7 @@ class HomeController extends Controller
 
             $transactions = Transaction::with(['book', 'borrower'])->simplePaginate(20, ['borrower_id', 'book_id'], 'records');
             
-            $borrowers = Borrower::Paginate(2, ['*'], 'borrowers');
+            $borrowers = Borrower::Paginate(20, ['*'], 'borrowers');
             $books = Book::simplePaginate(20);
             $transactions = Transaction::all();
 

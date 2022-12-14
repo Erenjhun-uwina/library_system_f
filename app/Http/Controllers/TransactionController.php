@@ -3,25 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaction;
+use App\Services\TransactionService;
 use DateTime;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
-    public function borrow(Request $req)
+    public function borrow(Request $req,TransactionService $transactionService)
     {
         $book_id = $req->book_id;
         $borrwer_id = session('id');
 
-        $transaction = Transaction::firstWhere([
-            ['borrower_id','=',$borrwer_id],
-            ['boook_id','=',$book_id]
-        ]);
-
-        if($transaction)return redirect('book_preview/' . $book_id)->withErrors('You already have borrowed this book');
+        $response = $transactionService->check($req);
+     
+        if(!$response['valid'])return redirect('book_preview/' . $book_id)->withErrors($response['err']);
         
-        dd('success');
-
         Transaction::create([
             'borrower_id'=> $borrwer_id,
             'book_id'=>$book_id,

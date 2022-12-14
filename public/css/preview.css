@@ -1,0 +1,19 @@
+.details{
+    background: brown;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.shelves{
+    height: 30rem;
+    gap: 1rem;
+}
+
+.cover{
+    width: 40%;
+    background: #333;
+    object-fit: contain;
+}
