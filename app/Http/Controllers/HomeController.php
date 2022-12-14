@@ -40,7 +40,8 @@ class HomeController extends Controller
 
     public function book_shelf(Request $req)
     {
-        return view ('book_shelf');
+        $borrower = Borrower::find(session('id'));
+        return view ('book_shelf',compact('borrower'));
     }
 
     public function search(Request $req,Search $search)

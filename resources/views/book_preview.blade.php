@@ -24,10 +24,10 @@
             @include('layout.form_err') 
             @include('layout.form_msg')
 
-            <p>Title:{{ $book->title }}</p>
-            <p>Author:{{ $book->author }}</p>
-            <P>Release date:{{ $book->date_release }}</p>
-            <p>Category:{{ $book->category }}</p>
+            <span class='detail'>Title : {{ $book->title }}</span>
+            <span class='detail'>Author : {{ $book->author }}</span>
+            <span class='detail'>Release date : {{ date('M d, Y',strtotime($book->date_release))  }}</span>
+            <span class='detail'>Category : {{ $book->category }}</span>
 
 
             @if (session('acc_type') != 'admin')
@@ -37,7 +37,7 @@
                     <button type="submit">borrow</button>
                 </form>
             @else
-                available quantity:{{$book->quantity}}
+                available quantity:{{$book->avail_quantity}}
             @endif
         </section>
     </div>

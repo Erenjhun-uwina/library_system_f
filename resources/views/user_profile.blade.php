@@ -17,7 +17,7 @@
 
     <section class="book" id='borrower_details'>
         <table>
-            
+
             <tr>
                 <th colspan=3>DETAILS</th>
             </tr>
@@ -40,7 +40,7 @@
 
     <div class="shelf_con">
 
-
+        {{-- pending n --}}
         <section class="book">
             <div class="results">
                 <table>
@@ -59,13 +59,18 @@
                         <tr>
                             <td><a href="/book_preview/{{ $transaction->book_id }}"> {{ $transaction->book->title }}</a>
                             </td>
-                            <td>{{ date('M d, Y', strtotime($transaction->date_requested)) }}</td>
+                            <td>
+                                <a href="/transaction/{{ $transaction->id }}">
+                                    {{ date('M d, Y', strtotime($transaction->date_requested)) }}
+                                </a>
+                            </td>
                         </tr>
                     @empty
                         <td colspan=2>no pending</td>
                     @endforelse
                 </table>
             </div>
+
             <div class="results">
                 <table>
                     <thead>
@@ -83,7 +88,9 @@
                             </td>
                             <td>
                                 @if ($transaction->date_borrowed)
-                                    {{ date('M d, Y', strtotime($transaction->date_borrowed)) }}
+                                    <a href="/transaction/{{ $transaction->id }}">
+                                        {{ date('M d, Y', strtotime($transaction->date_borrowed)) }}
+                                    </a>
                                 @endif
                             </td>
                         </tr>

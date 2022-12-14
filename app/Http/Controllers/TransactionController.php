@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Transaction;
 use App\Services\TransactionService;
 use DateTime;
+use Error;
+use Exception;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -18,9 +20,9 @@ class TransactionController extends Controller
 
     public function resolve(Request $req, TransactionService $transactionService)
     {
-        $transaction = Transaction::find($req->transaction_id);
         $action = $req->action;
 
+     
         $this->$action($req, $transactionService);
 
         return back()->with('msg', "$action success!!");
@@ -47,29 +49,28 @@ class TransactionController extends Controller
 
     public function cancel(Request $req, TransactionService $transactionService)
     {
-        $transaction = $transactionService->update_status($req, 'cancelled');
+        $transactionService->update_status($req, 'cancelled');
     }
 
     private function reject(Request $req, TransactionService $transactionService)
     {
-        dd('rejected');
-        $transaction = $transactionService->update_status($req, 'rejected');
+        $transactionService->update_status($req, 'rejected', function ($transaction) {
+            $transaction->date_rejected = now();
+        });
     }
 
-    private function release(Request $req, TransactionService $transactionService)
-    {
-        $transaction = $transactionService->update_status($req, 'released', function ($transaction) {
-            $transaction->date_released = now();
+    private function approve(Request $req, TransactionService $transactionService)
+    {   
+        $transactionService->update_status($req, 'approved', function ($transaction) {
+            $transaction->date_borrowed = now();
             $transaction->due_date = date_add(new DateTime(), date_interval_create_from_date_string('7 days'));
         });
     }
 
-    public function return_(Request $req, TransactionService $transactionService)
+    public function return(Request $req, TransactionService $transactionService)
     {
-        $transaction = $transactionService->update_status($req, 'released', function ($transaction) {
+        $transactionService->update_status($req, 'returned', function ($transaction) {
             $transaction->date_returned = now();
         });
-
-        return redirect('')->with('msg', 'success');
     }
 }

@@ -6,6 +6,8 @@
     @parent
     <link rel="stylesheet" href="/css/bookshelf.css">
     <link rel="stylesheet" href="/css/shelve.css">
+    <link rel="stylesheet" href="/css/profile.css">
+
 @endsection
 
 
@@ -14,54 +16,71 @@
     @parent
 
     <div class="shelf_con">
-        <div class='shelves'>
-            <section>
-                <h1 class="ge"> REQUEST BOOK</h1>
-            </section>
-            <section class="book">
-                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1581071758i/51046053.jpg"
-                    alt="">
 
-                <span>tititititititiiti</span>
-            </section>
-            <section class="book">
-                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1581071758i/51046053.jpg"
-                    alt="">
-                <span>tititititititiiti</span>
-            </section>
-        </div>
 
-        <div class='shelves'>
-            <section>
-                <h1 class="ge"> BORROWED BOOK</h1>
-            </section>
-            <section class="book">
-                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1581071758i/51046053.jpg"
-                    alt="">
-            </section>
-            <section class="book">
-                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1581071758i/51046053.jpg"
-                    alt="">
-            </section>
-        </div>
+        <section class='book'>
+            <div class="results">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan=2>PENDING</th>
+                        </tr>
+                    </thead>
 
-        
-        <div class='shelves'>
-            <section>
-                <h1 class="ge"> RETURED BOOKS</h1>
-            </section>
-            <section class="book">
-                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1581071758i/51046053.jpg"
-                    alt="">
-            </section>
-            <section class="book">
-                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1581071758i/51046053.jpg"
-                    alt="">
-            </section>
-        </div>
-       
-        </div>
+                    <tr>
+                        <th>BOOK</th>
+                        <th>DATE REQUESTED</th>
+                    </tr>
+
+                    @forelse ($borrower->transaction->where('status','pending') as $transaction)
+                        <tr>
+                            <td><a href="/book_preview/{{ $transaction->book_id }}"> {{ $transaction->book->title }}</a>
+                            </td>
+                            <td>
+                                <a href="/transaction/{{ $transaction->id }}">
+                                    {{ date('M d, Y', strtotime($transaction->date_requested)) }}
+                                </a>
+                            </td>
+                        </tr>
+                    @empty
+                        <td colspan=2>no pending</td>
+                    @endforelse
+                </table>
+            </div>
+        </section>
+
+        <section class="book">
+
+            <div class="results">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan=2>BORROWED</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <th>BOOK</th>
+                        <th>DATE BORROWED</th>
+                    </tr>
+                    @forelse ($borrower->transaction->where('status','borrowed') as $transaction)
+                        <tr>
+                            <td><a href="/book_preview/{{ $transaction->book_id }}"> {{ $transaction->book->title }}</a>
+                            </td>
+                            <td>
+                                @if ($transaction->date_borrowed)
+                                    <a href="/transaction/{{ $transaction->id }}">
+                                        {{ date('M d, Y', strtotime($transaction->date_borrowed)) }}
+                                    </a>
+                                @endif
+                            </td>
+                        </tr>
+                    @empty
+                        <td colspan=1>no borrowed</td>
+                    @endforelse
+                </table>
+            </div>
+        </section>
+
     </div>
-
 
 @endsection

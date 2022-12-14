@@ -18,9 +18,10 @@ class TransactionService
         $book_id = $req->book_id;
         $borrwer_id = session('id');
 
-        $transaction = Transaction::where([
-            ['borrower_id', '=', $borrwer_id],
-        ]);
+        $transaction = Transaction::where('borrower_id', $borrwer_id)
+        ->whereIn('status',['pending','approved']);
+
+        
 
         if ($transaction->count() >= 2) {
             $response['err'] = "You can only borrow up to 2 books.";
@@ -44,11 +45,15 @@ class TransactionService
         ]);
     }
 
-    public function update_status(Request $req,string $status,Closure $cb = null)
+    public function update_status(Request $req, string $status, Closure $cb = null)
     {
-        $transaction = $this->get($req);
+        $transaction = Transaction::find($req->transaction_id);
+
+       
+
+        if ($cb) $cb($transaction);
         $transaction->status = $status;
-        if($cb)$cb();
+        
         $transaction->save();
 
     }

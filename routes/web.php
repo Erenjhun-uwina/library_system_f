@@ -47,6 +47,7 @@ Route::group(['controller' => TransactionController::class, 'middle' => 'auth'],
 
     Route::post('borrow', 'borrow');
     Route::post('cancel', 'cancel');
+    Route::post('resolve','resolve');
 });
 
 Route::group(['controller' => ProfileController::class, 'middleware' => ['is_admin']], function () {

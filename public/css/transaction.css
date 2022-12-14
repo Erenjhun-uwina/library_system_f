@@ -1,0 +1,9 @@
+#form_con{
+    text-align: center;
+}
+
+#form_con form{
+    width: 100%;
+    height: 100%;
+    padding: .5rem;
+}
