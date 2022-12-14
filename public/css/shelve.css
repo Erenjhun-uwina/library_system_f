@@ -26,11 +26,23 @@
 }
 
 .book span{
-    background: yellow;
+    background: rgb(235, 198, 198);
     width: 100%;
+    color: black;
 }
 
 .book img{
     width: 30%;
     height: 60%;
+}
+
+.ge{
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: 'Courier New';
+    gap: 2rem;
+    color: white;
+    -webkit-text-stroke-width: 1.6px;
+    -webkit-text-stroke-color: black;
 }

@@ -1,10 +1,11 @@
 .details{
-    background: brown;
+    background: linear-gradient(#d8a5a2,#72a4e0);
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+  color:white;
 }
 
 .shelves{
@@ -17,3 +18,4 @@
     background: #333;
     object-fit: contain;
 }
+
