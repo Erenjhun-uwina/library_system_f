@@ -30,7 +30,6 @@
             @if (session('acc_type') != 'admin')
                 <form action="/borrow" method="post">
                     @csrf
-
                     <input type="hidden" name="book_id" value="{{ $book->id }}">
                     <button type="submit">borrow</button>
                 </form>
