@@ -4,9 +4,8 @@
 
 <link rel="stylesheet" href="/css/bookshelf.css">
 <link rel="stylesheet" href="/css/shelve.css">
+
 @section('head')
-    @parent
-   
 
 @section('body')
 
