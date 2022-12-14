@@ -78,23 +78,23 @@
                     @csrf
                     @include('layout.form_msg')
                     @include('layout.form_err')
-                    <label for="booktitle"><b>Book Title</b></label>
-                    <input type="text" placeholder="Book Title" name="title" required>
+                    
+                    <input type="text" placeholder="Book Title" name="title" required> <br>
 
-                    <label for="author"><b>Author</b></label>
+                   
                     <input type="text" placeholder="Author" name="author" required>
-                    <label for="categpry"><b>Category</b></label>
+                 
                     <input type="text" placeholder="Category" name="category" id='category' required>
 
                     <label for="daterelease">Date Release:</label>
-                    <input type="date" id="daterelease" name="date_release">
+                    <input type="date" id="daterelease" name="date_release"><br>
 
-                    <label for="cover">cover</label><input type="file" accept='image/*' id='cover' name='cover'>
+                    <label for="cover">cover</label><input  type="file" accept='image/*' id='cover' name='cover'><br>
 
                     <label for="quantity">quantity</label>
-                    <input type="number" name="quanity" id="quantity" value='1'>
+                    <input type="number" name="quanity" id="quantity" value='1'><br>
 
-                    <button type="submit" class="btn">Submit</button>
+                    <button type="submit" class="btn">Submit</button><br>
                 </form>
             </div>
         </div>
