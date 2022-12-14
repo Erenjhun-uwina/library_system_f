@@ -10,55 +10,66 @@ use Illuminate\Http\Request;
 class TransactionController extends Controller
 {
     public function transaction(Request $req)
-    {   
+    {
         $transaction = Transaction::find($req->transaction_id);
 
-        return view('transaction',compact('transaction'));
+        return view('transaction', compact('transaction'));
     }
 
-    public function borrow(Request $req,TransactionService $transactionService)
+    public function resolve(Request $req, TransactionService $transactionService)
+    {
+        $transaction = Transaction::find($req->transaction_id);
+        $action = $req->action;
+
+        $this->$action($req, $transactionService);
+
+        return back()->with('msg', "$action success!!");
+    }
+
+    public function borrow(Request $req, TransactionService $transactionService)
     {
         $book_id = $req->book_id;
         $borrower_id = session('id');
 
         $response = $transactionService->check($req);
-     
-        if(!$response['valid'])return redirect('book_preview/' . $book_id)->withErrors($response['err']);
-        
+
+        if (!$response['valid']) return redirect('book_preview/' . $book_id)->withErrors($response['err']);
+
         Transaction::create([
-            'borrower_id'=> $borrower_id,
-            'book_id'=>$book_id,
-            'status'=>'pending',
+            'borrower_id' => $borrower_id,
+            'book_id' => $book_id,
+            'status' => 'pending',
             'due_date' => 'null',
             'date_requested' => now()
         ]);
         return redirect('book_preview/' . $book_id)->with('msg', 'success');
     }
 
-    public function cancel(Request $req,TransactionService $transactionService)
+    public function cancel(Request $req, TransactionService $transactionService)
     {
-        $transaction = $transactionService->update_status($req,'cancelled');
+        $transaction = $transactionService->update_status($req, 'cancelled');
     }
 
-    public function reject(Request $req,TransactionService $transactionService)
+    private function reject(Request $req, TransactionService $transactionService)
     {
-        $transaction = $transactionService->update_status($req,'rejected');
+        dd('rejected');
+        $transaction = $transactionService->update_status($req, 'rejected');
     }
 
-    public function release(Request $req,TransactionService $transactionService)
+    private function release(Request $req, TransactionService $transactionService)
     {
-        $transaction = $transactionService->update_status($req,'released',function($transaction){
+        $transaction = $transactionService->update_status($req, 'released', function ($transaction) {
             $transaction->date_released = now();
-            $transaction->due_date = date_add(new DateTime() ,date_interval_create_from_date_string('7 days'));
+            $transaction->due_date = date_add(new DateTime(), date_interval_create_from_date_string('7 days'));
         });
     }
 
-    public function return_(Request $req,TransactionService $transactionService)
+    public function return_(Request $req, TransactionService $transactionService)
     {
-        $transaction = $transactionService->update_status($req,'released',function($transaction){
-            $transaction->date_returned= now();
+        $transaction = $transactionService->update_status($req, 'released', function ($transaction) {
+            $transaction->date_returned = now();
         });
 
-        return redirect('')->with('msg','success');
+        return redirect('')->with('msg', 'success');
     }
 }

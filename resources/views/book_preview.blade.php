@@ -4,6 +4,9 @@
 
 @section('head')
     @parent
+    @if (session('acc_type') == 'admin')
+        <link rel="stylesheet" href="/css/dashboard.css">
+    @endif
     <link rel="stylesheet" href="/css/bookshelf.css">
     <link rel="stylesheet" href="/css/preview.css">
 @endsection

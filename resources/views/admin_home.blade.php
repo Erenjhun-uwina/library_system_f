@@ -5,7 +5,7 @@
 @section('head')
     @parent
     <link rel="stylesheet" href="/css/dashboard.css">
-    <script src="/js/book_popup" defer></script>
+    <link rel="stylesheet" href="/css/add_book_form.css">
 @endsection
 
 
