@@ -14,7 +14,9 @@
         <button id="home"><i class="fa-solid fa-house-chimney"></i> HOME</button>
 
         <button id="about"><i class="fa-solid fa-circle-info"></i> ABOUT<i class="fa fa-caret-down"></i></button>
+
         <input id="search" type="text" placeholder="Search">
+        
         <button id="logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
     </div>
 

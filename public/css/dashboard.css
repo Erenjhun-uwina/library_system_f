@@ -39,8 +39,9 @@ nav{
   color: black;
   display: none;
   padding-inline:1rem;
+  height: 60vw;
   padding-block:0 ;
-  background-color: rgb(172, 134, 180);
+    background-color: rgb(172, 134, 180);
   width: 100%;
   overflow: auto;
 }
@@ -120,3 +121,4 @@ td a{
 td a:hover{
   text-decoration: underline;
 }
+

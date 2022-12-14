@@ -11,8 +11,22 @@
 
 @section('body')
 
+<<<<<<< HEAD
+    <button class="tablink" onclick="openPage('Home', this)" id="defaultOpen">BORROWERS</button>
+    <button class="tablink" onclick="openPage('Users', this)">Users LIST</button>
+    <button class="tablink" onclick="openPage('Contact', this)">ADD BOOKS</button>
+    <button class="tablink" onclick="openPage('About', this)">ABOUT</button>
+
+    <form action="/search" method='post'>
+        @csrf
+        <input id="search" type="text" placeholder="Search"  name="bookkoo" >
+</form>
+
+    <a href="/logout/{{ session('id') }}"><button type="button" class='tablink'>LOGOUT</button></a>
+=======
 
     <div id='dashboard_con'>
+>>>>>>> b6070a6b0d262829c0d366f053cf88f90393bc4c
 
 
         <nav>
