@@ -137,10 +137,14 @@ h1 {
 #topnav a{
   text-decoration: none;
   padding-block:1rem ;
-  color: aliceblue;
+  color:#211309;
   display: block;
   width: 9rem;
   height: 100%;
+}
+
+#topnav a:first-of-type{
+  background: #9b928c;
 }
 
 #topnav a:hover{

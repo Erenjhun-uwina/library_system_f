@@ -14,22 +14,28 @@
     @parent
 
     <div class='shelves'>
-        <img src="/assets/covers/{{ $book->cover }}" class ='cover'>
+        <img src="/assets/covers/{{ $book->cover }}" class='cover'>
 
         <section class='details'>
+
+            @include('layout.form_err')
+            @include('layout.form_msg')
+
+            <br>
 
             <p>{{ $book->title }}</p>
             <p>Author:{{ $book->author }}</p>
             <P>release date:{{ $book->date_release }}</p>
             <p>categoty:{{ $book->category }}</p>
 
-             @if (session('acc_type') != 'admin')
-            <form action="/borrow" method="post">
-                @csrf
-                <input type="hidden" name="book_id" value="{{ $book->id }}">
-                <button type="submit">borrow</button>
-            </form>
-        @endif
+            @if (session('acc_type') != 'admin')
+                <form action="/borrow" method="post">
+                    @csrf
+
+                    <input type="hidden" name="book_id" value="{{ $book->id }}">
+                    <button type="submit">borrow</button>
+                </form>
+            @endif
         </section>
     </div>
 

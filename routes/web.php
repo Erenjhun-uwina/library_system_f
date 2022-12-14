@@ -40,5 +40,6 @@ Route::controller(RegisterController::class)->group(function () {
 });
 
 Route::group(['controller'=>TransactionController::class,'middle'=>'auth'],function(){
-    Route::post('borrow/{book_id}','borrow');
+    Route::post('borrow','borrow');
+    Route::post('');
 });
