@@ -5,7 +5,9 @@
     flex-direction: column;
     justify-content: center;
     font-size: 2.5rem;
-  color:white;
+  color: darkblue;
+  font-family: sans-serif;
+  gap: .6rem;
 }
 
 .shelves{

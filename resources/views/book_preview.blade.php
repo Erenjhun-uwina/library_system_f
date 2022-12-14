@@ -18,7 +18,7 @@
 
         <section class='details'>
 
-            @include('layout.form_err')
+            @include('layout.form_err') 
             @include('layout.form_msg')
 
             <br>
