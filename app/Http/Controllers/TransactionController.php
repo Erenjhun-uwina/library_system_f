@@ -15,13 +15,11 @@ class TransactionController extends Controller
 
         $transaction = Transaction::firstWhere([
             ['borrower_id','=',$borrwer_id],
-            ['boook_id','=',$book_id]
+            ['book_id','=',$book_id]
         ]);
 
         if($transaction)return redirect('book_preview/' . $book_id)->withErrors('You already have borrowed this book');
         
-        dd('success');
-
         Transaction::create([
             'borrower_id'=> $borrwer_id,
             'book_id'=>$book_id,
