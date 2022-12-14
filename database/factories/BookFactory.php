@@ -18,13 +18,17 @@ class BookFactory extends Factory
      */
     public function definition()
     {
+
+        $quantity  = rand(1, 10);
+
         return [
-            'title' => fake()->sentence(rand(3,6)),
+            'title' => fake('en_Us')->sentence(rand(3,6)),
             'author' => fake()->name(),
             'date_release' => fake()->date('m-d-Y'),
             'category' => 'test',
             'cover' => 'book.png',
-            'quantity' => rand(1, 10)
+            'quantity' => $quantity,
+            'avail_quantity' => $quantity
         ];
     }
 }

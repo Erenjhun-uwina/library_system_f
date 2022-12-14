@@ -10,8 +10,10 @@ use Illuminate\Http\Request;
 class TransactionController extends Controller
 {
     public function transaction(Request $req)
-    {
-        return view('transaction');
+    {   
+        $transaction = Transaction::find($req->transaction_id);
+
+        return view('transaction',compact('transaction'));
     }
 
     public function borrow(Request $req,TransactionService $transactionService)

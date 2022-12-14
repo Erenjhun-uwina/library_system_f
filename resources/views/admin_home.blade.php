@@ -23,7 +23,6 @@
         </nav>
 
         <div id="Home" class="tabcontent">
-            <h3 id="he">Borrowers</h3>
             <div class="results">
                 <table>
                     <tr>
@@ -36,7 +35,7 @@
                             <td><a href="/user_profile/{{$transaction->borrower_id}}">{{ $transaction->borrower->fn }} {{ $transaction->borrower->ln }}</a></td>
                             <td><a href="/book_preview/{{ $transaction->book_id }}"> {{ $transaction->book->title }}</a>
                             </td>
-                            <td>{{ $transaction->status }}</td>
+                            <td><a href="/transaction/{{$transaction->id}}">{{ $transaction->status }}</a></td>
                         </tr>
                     @empty
                         <td colspan=3>no borrower</td>
@@ -46,17 +45,15 @@
         </div>
 
         <div id="Users" class="tabcontent">
-            <h3 id="he">Users</h3>
-
             <div class="results">
                 <table>
                     <tr>
-                        <th>full name</th>
-                        <th>status</th>
+                        <th>NAME</th>
+                        <th>STATUS</th>
                     </tr>
                     @forelse ($borrowers as $borrower)
                         <tr>
-                            <td>{{ $borrower->fn }} {{ $borrower->ln }}</td>
+                            <td><a href="/user_profile/{{$borrower->id}}">{{ $borrower->fn }} {{ $borrower->ln }}</a></td>
                             <td>lmao</td>
                         </tr>
                     @empty

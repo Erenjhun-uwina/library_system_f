@@ -11,14 +11,13 @@
   gap: .3rem;
 }
 
-.shelves{
+.shelves {
     height: 30rem;
     gap: 1rem;
 }
 
-.cover{
+.cover {
     width: 40%;
     background: #333;
     object-fit: contain;
 }
-
