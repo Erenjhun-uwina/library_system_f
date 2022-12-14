@@ -132,6 +132,7 @@ h1 {
   justify-content:left;
   position: relative;
   user-select: none;
+  min-height:3rem ;
 }
 
 #topnav a{

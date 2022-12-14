@@ -2,23 +2,28 @@ body{
   background: #333;
 }
 
+header {
+  background: rgb(145, 119, 151);
+  color: white;
+  
+}
+
 #topnav{
-  background:rgb(84, 63, 89);
+  background:rgb(111, 88, 117);
 }
 
 #topnav a{
- 
-  color:#211309;
-
+  color:whitesmoke;
 }
 
 #topnav a:first-of-type{
-  background: #9b928c;
+  background:rgb(91, 68, 97);
 }
 
 #topnav a:hover{
-  background: #8a837e;
+  background:rgb(72, 54, 77);
 }
+
 
 #dashboard_con{
   display: flex;

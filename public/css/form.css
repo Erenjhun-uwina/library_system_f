@@ -71,8 +71,11 @@ css file specific dun
     padding-block: 1rem;
     width: 80%;
     font-size: 1.3rem;
-    margin:.5rem ;
+    margin:.5rem;
     margin-inline:auto;
+    font-weight: bold;
+    font-family: 'helvetica';
+    border-radius: 5px;
 }
 
 .alert-err{
