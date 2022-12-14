@@ -39,12 +39,9 @@ nav{
   color: black;
   display: none;
   padding-inline:1rem;
-<<<<<<< HEAD
   height: 60vw;
-=======
   padding-block:0 ;
->>>>>>> b6070a6b0d262829c0d366f053cf88f90393bc4c
-  background-color: rgb(172, 134, 180);
+    background-color: rgb(172, 134, 180);
   width: 100%;
   overflow: auto;
 }
