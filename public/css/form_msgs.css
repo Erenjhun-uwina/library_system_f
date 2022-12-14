@@ -3,5 +3,8 @@
     font-size: 2rem;
     font-weight: bold;
     font-family: 'helvetica';
+}
 
+.details{
+    border-radius: 3rem;
 }
