@@ -30,7 +30,7 @@ class HomeController extends Controller
 
         return view('home', compact('acc_type','books'));
     }
-
+    
     public function book_preview(Request $req)
     {       
         $book_id = $req->book_id;
@@ -43,7 +43,6 @@ class HomeController extends Controller
     {
         return view ('book_shelf');
     }
-
 
     public function search(Request $req,Search $search)
     {

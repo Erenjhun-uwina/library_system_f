@@ -14,10 +14,15 @@ class Is_Admin
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next,$uri)
+    public function handle(Request $request, Closure $next,$uri = null)
     {   
         $is_admin = session('acc_type') == 'admin';
-        if(!$is_admin)return redirect("/$uri");
+        
+        if(!$is_admin){
+            if($uri == null) return abort(403,'you need admin access');
+            return redirect("/$uri");
+        }
+        
         return $next($request);
     }
 }

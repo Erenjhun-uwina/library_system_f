@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title', 'collection')
+@section('title', 'shelf')
 
 @section('head')
     @parent

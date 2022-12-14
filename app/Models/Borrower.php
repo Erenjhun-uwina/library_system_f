@@ -11,5 +11,8 @@ class Borrower extends Model
 
     protected $guarded = ['id'];
 
-
+    public function transaction()
+    {
+       return $this->hasMany(Transaction::class);
+    }
 }
