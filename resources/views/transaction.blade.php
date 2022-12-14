@@ -4,6 +4,7 @@
 
 
 @section('body')
+    @parent
     <div class="shelves">
         
     </div>

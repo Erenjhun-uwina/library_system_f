@@ -1,4 +1,4 @@
-@extends('layout.metas')
+@extends('layout.main')
 
 @section('title', 'dashboard')
 
@@ -9,7 +9,8 @@
 @endsection
 
 
-@section('body')
+@section('body')    
+    @parent
 
     <div id='dashboard_con'>
 

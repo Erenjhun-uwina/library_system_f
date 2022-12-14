@@ -2,10 +2,29 @@ body{
   background: #333;
 }
 
+#topnav{
+  background:rgb(84, 63, 89);
+}
+
+#topnav a{
+ 
+  color:#211309;
+
+}
+
+#topnav a:first-of-type{
+  background: #9b928c;
+}
+
+#topnav a:hover{
+  background: #8a837e;
+}
+
 #dashboard_con{
   display: flex;
-  height: 100vh;
+  height: 75vh;
   overflow: hidden;
+  margin-top: .5rem;
 }
 
 #dashboard_con nav{

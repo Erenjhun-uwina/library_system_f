@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
-    public function transaction_page(Request $req)
+    public function transaction(Request $req)
     {
         return view('transaction');
     }
