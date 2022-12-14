@@ -6,6 +6,8 @@ namespace App\Services;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\arrayHasKey;
+
 class TransactionService
 {
 
@@ -22,11 +24,11 @@ class TransactionService
         if ($transaction->count() >= 2) {
             $response['err'] = "You can only borrow up to 2 books.";
         } else
-        if ($transaction->where('book_id', $book_id)) {
+        if ($transaction->where('book_id', $book_id)->first()) {
             $response['err'] = "You already have borrowed this book.";
         }
 
-        if(!$response['err'])$response['valid'] = true;
+        if(!array_key_exists('err',$response))$response['valid'] = true;
         return $response;
     }
 }
