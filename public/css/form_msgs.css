@@ -1,3 +1,7 @@
 .alert-err{
-    color:red
+    color:red;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'helvetica';
+
 }
