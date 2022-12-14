@@ -17,7 +17,7 @@
         <nav>
             <button class="tablink" onclick="openPage('Home', this)" id="defaultOpen">Borrowers</button>
             <button class="tablink" onclick="openPage('Users', this)">User list</button>
-            <button class="tablink" onclick="openPage('Add_book', this)">Add Books</button>
+            <button class="tablink" onclick="openPage('Add_book', this)">Add Book</button>
             <button class="tablink" onclick="openPage('About', this)">About</button>
             <a href="/logout/{{ session('id') }}"><button type="button" class='tablink'>logout</button></a>
         </nav>
@@ -70,7 +70,7 @@
         </div>
 
         <div id="Add_book" class="tabcontent">
-            <h3 id="he">Add Books</h3>
+            <h3 id="he">Add Book</h3>
 
             <div class="form-popup" id="myForm">
                 <form action="/register_book" method='post' class="form-container" enctype='multipart/form-data'>
