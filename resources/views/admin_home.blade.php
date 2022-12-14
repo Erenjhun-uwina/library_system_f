@@ -70,8 +70,6 @@
         <div id="Add_book" class="tabcontent">
             <h3 id="he">Add Books</h3>
 
-            <button class="open-button" onclick="openForm()">Open Form</button>
-
             <div class="form-popup" id="myForm">
                 <form action="/register_book" method='post' class="form-container" enctype='multipart/form-data'>
 
@@ -95,7 +93,6 @@
                     <input type="number" name="quanity" id="quantity" value='1'>
 
                     <button type="submit" class="btn">Submit</button>
-                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
                 </form>
             </div>
         </div>

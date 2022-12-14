@@ -21,10 +21,10 @@
             @include('layout.form_err') 
             @include('layout.form_msg')
 
-            <p>{{ $book->title }}</p>
+            <p>Title:{{ $book->title }}</p>
             <p>Author:{{ $book->author }}</p>
-            <P>release date:{{ $book->date_release }}</p>
-            <p>categoty:{{ $book->category }}</p>
+            <P>Release date:{{ $book->date_release }}</p>
+            <p>Category:{{ $book->category }}</p>
 
 
             @if (session('acc_type') != 'admin')
