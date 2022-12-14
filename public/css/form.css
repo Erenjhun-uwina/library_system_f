@@ -55,7 +55,6 @@ css file specific dun
     text-align: center;
     margin: 0;
     border-radius: 2rem;
-
 }
 
 .form_con label:hover {
@@ -66,4 +65,23 @@ css file specific dun
 .form_con input[type=radio]:checked+label {
     background: rgb(90, 101, 145);
     color: white;
+}
+
+.alert-err,.alert-msg{
+    padding-block: 1rem;
+    width: 80%;
+    font-size: 1.3rem;
+    margin:.5rem ;
+    margin-inline:auto;
+}
+
+.alert-err{
+    color:rgb(149, 21, 36);
+    background: rgba(255, 127, 127, 0.53);
+}
+
+.alert-msg{
+    color:rgb(70, 97, 0);
+    background: rgba(209, 255, 93, 0.422);
+   
 }

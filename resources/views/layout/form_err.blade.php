@@ -1,5 +1,7 @@
 
-<div  class='alert-err'>
+<div  
+    class = {{$errors->any()?'alert-err':''}} 
+>
     @if ($errors->any())
          <h2>oops</h2>
          @foreach ($errors->all() as $error)
