@@ -10,9 +10,7 @@
 
 
 @section('body')
-
     @parent
-
     <main>
         @forelse (array_chunk($books->items(),7) as $bookk)
             <div class="shelves">
