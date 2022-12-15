@@ -3,6 +3,7 @@
 
 namespace App\Services;
 
+use App\Models\Book;
 use App\Models\Transaction;
 use Closure;
 use Illuminate\Http\Request;
@@ -19,8 +20,11 @@ class TransactionService
         $borrwer_id = session('id');
 
         $transaction = Transaction::where('borrower_id', $borrwer_id);
-
+        $book = Book::find($book_id);
         
+        if($book->avail_quantity<1){
+            $response['err'] = "This book is not available.";
+        }
         if ($transaction->whereIn('status',['pending','approved'])->count() >= 2) {
             $response['err'] = "You can only borrow up to 2 books.";
         } else if ($transaction->where('book_id', $book_id)->first()) {
