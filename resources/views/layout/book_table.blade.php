@@ -16,9 +16,7 @@
                 <th>BOOK</th>
                 <th>DATE REQUESTED</th>
 
-                @if ($label == 'PENDING')
-                    <th>Edit</th>
-                @endif
+               
             </tr>
 
             @forelse ($transactions as $transaction)
@@ -28,11 +26,7 @@
                     <td>
                         {{ date('M d, Y', strtotime($transaction->date_requested)) }}
                     </td>
-                    
                 </tr>
-            @empty
-                <td colspan={{ $colspan }}>no record</td>
-            @endforelse
         </table>
     </div>
 </section>

@@ -46,7 +46,7 @@ header {
 
 #dashboard_con nav{
   background: #333;
-  height: 20rem;
+  height: 32rem;
   display: flex;
   flex-direction: column;
   width: 25%;
@@ -150,3 +150,16 @@ td a:hover{
   text-decoration: underline;
 }
 
+
+td img{
+  height: 6rem;
+  object-fit: contain;
+}
+
+.results th:last-child{
+  width: 25%;
+}
+
+.results td:last-child{
+  background: rgb(159, 123, 166);
+}

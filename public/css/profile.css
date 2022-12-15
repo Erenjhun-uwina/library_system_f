@@ -70,11 +70,10 @@ tbody{
     color: #333;
 }
 
-.results th:nth-child(2){
+.results th:last-child{
     width: 25%;
 }
 
-.results td:nth-child(2){
+.results td:last-child{
     background: rgb(159, 123, 166);
-
 }
