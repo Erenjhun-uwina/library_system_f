@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Borrower;
 use App\Models\Transaction;
 use App\Services\TransactionService;
@@ -23,7 +24,6 @@ class TransactionController extends Controller
     {
         $action = $req->action;
 
-     
         $this->$action($req, $transactionService);
 
         return back()->with('msg', "$action success!!");
@@ -45,6 +45,10 @@ class TransactionController extends Controller
 
        
         if (!$response['valid']) return redirect('book_preview/' . $book_id)->withErrors($response['err']);
+        
+        $book = Book::find($book_id);
+        $book->avail_quantity-=1;
+        $book->save();
 
         Transaction::create([
             'borrower_id' => $borrower_id,
@@ -80,6 +84,10 @@ class TransactionController extends Controller
     {
         $transactionService->update_status($req, 'returned', function ($transaction) {
             $transaction->date_returned = now();
+
+            $book = Book::find($transaction->book_id);
+            $book->avail_quantity+=1;
+            $book->save();
         });
     }
 }
