@@ -31,18 +31,34 @@
     color: black;
 }
 
+table{
+    text-align: left;
+}
+
 .book img{
     width: 30%;
     height: 60%;
 }
 
-.ge{
-    align-items: center;
-    font-size: 3rem;
-    font-weight: bold;
-    font-family: 'Courier New';
-    gap: 2rem;
-    color: white;
-    -webkit-text-stroke-width: 1.6px;
-    -webkit-text-stroke-color: black;
+th{
+    background: #a99;   
+    padding-inline:1rem ;
+
+}
+
+tr{
+    background: #999;
+    border-bottom: 2px solid #383241;
+}
+
+td{
+    padding-block: 1rem;
+    color: #383241;
+    padding-inline:1rem ;
+
+}
+
+td a{
+    text-decoration: none;   
+    color: #383241;
 }

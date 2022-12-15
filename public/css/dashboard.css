@@ -16,6 +16,18 @@ header {
   color:whitesmoke;
 }
 
+#logout{
+  background: rgb(84, 63, 89); 
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 1rem;
+  color: white;
+}
+#logout:hover{
+  background:rgb(111, 88, 117);
+}
+
 #topnav a:first-of-type{
   background:rgb(91, 68, 97);
 }
@@ -30,12 +42,11 @@ header {
   height: 75vh;
   overflow: hidden;
   margin: .3rem;
-
 }
 
 #dashboard_con nav{
   background: #333;
-  height: auto;
+  height: 20rem;
   display: flex;
   flex-direction: column;
   width: 25%;
@@ -49,10 +60,9 @@ header {
   border-radius: 0;
   display: block;
   cursor: pointer;
-
-  padding-block:2rem;
   width: 100%;
   margin: 0;
+  height: 100%;
 }
 
 .tablink:hover {

@@ -9,20 +9,21 @@
 @endsection
 
 
-@section('body')    
+@section('body')
     @parent
 
     <div id='dashboard_con'>
 
         <nav>
-            <button class="tablink" onclick="openPage('Home', this)" id="defaultOpen">Borrowers</button>
+            <button class="tablink" onclick="openPage('Pending_Borrowed', this)" id="defaultOpen">Pending/Borrowed</button>
+            <button class="tablink" onclick="openPage('Returned', this)">Returned</button>
             <button class="tablink" onclick="openPage('Users', this)">User list</button>
             <button class="tablink" onclick="openPage('Add_book', this)">Add Book</button>
             <button class="tablink" onclick="openPage('About', this)">About</button>
-            <a href="/logout/{{ session('id') }}"><button type="button" class='tablink'>logout</button></a>
+            <a href="/logout/{{ session('id') }}" id='logout'>logout</a>
         </nav>
 
-        <div id="Home" class="tabcontent">
+        <div id="Pending_Borrowed" class="tabcontent">
             <div class="results">
                 <table>
                     <tr>
@@ -30,12 +31,13 @@
                         <th>BOOK</th>
                         <th>STATUS</th>
                     </tr>
-                    @forelse ($transactions as $transaction)
+                    @forelse ($transactions->whereIn('status',['pending','approved'])  as $transaction)
                         <tr>
-                            <td><a href="/user_profile/{{$transaction->borrower_id}}">{{ $transaction->borrower->fn }} {{ $transaction->borrower->ln }}</a></td>
+                            <td><a href="/user_profile/{{ $transaction->borrower_id }}">{{ $transaction->borrower->fn }}
+                                    {{ $transaction->borrower->ln }}</a></td>
                             <td><a href="/book_preview/{{ $transaction->book_id }}"> {{ $transaction->book->title }}</a>
                             </td>
-                            <td><a href="/transaction/{{$transaction->id}}">{{ $transaction->status }}</a></td>
+                            <td><a href="/transaction/{{ $transaction->id }}">{{ $transaction->status }}</a></td>
                         </tr>
                     @empty
                         <td colspan=3>no borrower</td>
@@ -43,6 +45,30 @@
                 </table>
             </div>
         </div>
+
+        <div id="Returned" class="tabcontent">
+            <div class="results">
+                <table>
+                    <tr>
+                        <th>NAME</th>
+                        <th>BOOK</th>
+                        <th>STATUS</th>
+                    </tr>
+                    @forelse ($transactions->where('status','returned') as $transaction)
+                        <tr>
+                            <td><a href="/user_profile/{{ $transaction->borrower_id }}">{{ $transaction->borrower->fn }}
+                                    {{ $transaction->borrower->ln }}</a></td>
+                            <td><a href="/book_preview/{{ $transaction->book_id }}"> {{ $transaction->book->title }}</a>
+                            </td>
+                            <td><a href="/transaction/{{ $transaction->id }}">{{ $transaction->status }}</a></td>
+                        </tr>
+                    @empty
+                        <td colspan=3>no borrower</td>
+                    @endforelse
+                </table>
+            </div>
+        </div>
+
 
         <div id="Users" class="tabcontent">
             <div class="results">
@@ -54,8 +80,9 @@
                     </tr>
                     @forelse ($borrowers as $borrower)
                         <tr>
-                            <td><a href="/user_profile/{{$borrower->id}}">{{ $borrower->fn }} {{ $borrower->ln }}</a></td>
-                            <td>{{$borrower->borrower_type}}</td>
+                            <td><a href="/user_profile/{{ $borrower->id }}">{{ $borrower->fn }} {{ $borrower->ln }}</a>
+                            </td>
+                            <td>{{ $borrower->borrower_type }}</td>
                             <td>lmao</td>
                         </tr>
                     @empty
@@ -78,18 +105,19 @@
                     @csrf
                     @include('layout.form_msg')
                     @include('layout.form_err')
-                    
+
                     <input type="text" placeholder="Book Title" name="title" required> <br>
 
-                   
+
                     <input type="text" placeholder="Author" name="author" required>
-                 
+
                     <input type="text" placeholder="Category" name="category" id='category' required>
 
                     <label for="daterelease">Date Release:</label>
                     <input type="date" id="daterelease" name="date_release"><br>
 
-                    <label for="cover">cover</label><input  type="file" accept='image/*' id='cover' name='cover'><br>
+                    <label for="cover">cover</label><input type="file" accept='image/*' id='cover'
+                        name='cover'><br>
 
                     <label for="quantity">quantity</label>
                     <input type="number" name="quanity" id="quantity" value='1'><br>

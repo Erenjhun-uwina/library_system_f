@@ -1,15 +1,20 @@
 <?php
 
 namespace App\Actions;
+
 use App\Models\Book;
 
-class Search{
-    public function handle(string $title,$category = '')
+class Search
+{
+    public function handle(string $title, $category = null)
     {
-        return Book::where([
-            ['title','like',"%$title%"],
-            ['category','like','category']
-        ])->get();
+
+        $where = [
+            ['title', 'like', "%$title%"],
+        ];
+
+        if ($category) array_push($where, ['category', 'like', $category]);
+
+        return Book::where($where);
     }
 }
-

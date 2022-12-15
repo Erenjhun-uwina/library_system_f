@@ -10,23 +10,23 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function home(Request $req)
+    public function home(Request $req,Search $search)
     {
         $acc_type = session("acc_type");
         
-
+    
         if ($acc_type == 'admin') {
-
             $transactions = Transaction::with(['book', 'borrower'])->simplePaginate(20, ['borrower_id', 'book_id'], 'records');
-            
             $borrowers = Borrower::all();
             $books = Book::all();
             $transactions = Transaction::all();
 
             return view('admin_home', compact('transactions', 'borrowers','transactions'));
         }
+        
+        $title = $req->title?:"";
 
-        $books = Book::paginate(14);
+        $books = $search->handle($title)->paginate(14);
         return view('home', compact('acc_type','books'));
     }
     
@@ -44,8 +44,10 @@ class HomeController extends Controller
         return view ('book_shelf',compact('borrower'));
     }
 
-    public function search(Request $req,Search $search)
-    {
-        return redirect();
+    public function search(Request $req)
+    {   
+        $search = $req->search?:'%x%invalid%x%';
+
+        return redirect("search/$search");
     }
 }

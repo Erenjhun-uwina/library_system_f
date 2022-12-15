@@ -27,7 +27,7 @@
 
                     <section class="book">
                         <a href="/book_preview/{{$book->id}}">
-                            <img src="assets/covers/{{ $book->cover }}" alt="">
+                            <img src="{{asset('assets/covers/'.$book->cover)}}" alt="">
                         </a>
                     </section>
                 @endforeach

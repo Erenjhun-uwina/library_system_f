@@ -82,7 +82,7 @@
                         <th>BOOK</th>
                         <th>DATE BORROWED</th>
                     </tr>
-                    @forelse ($borrower->transaction->where('status','borrowed') as $transaction)
+                    @forelse ($borrower->transaction->where('status','approved') as $transaction)
                         <tr>
                             <td><a href="/book_preview/{{ $transaction->book_id }}"> {{ $transaction->book->title }}</a>
                             </td>
@@ -95,7 +95,7 @@
                             </td>
                         </tr>
                     @empty
-                        <td colspan=1>no borrowed</td>
+                        <td colspan=2>no borrowed</td>
                     @endforelse
                 </table>
             </div>
@@ -122,7 +122,9 @@
                             </td>
                             <td>
                                 @if ($transaction->date_returned)
-                                    {{ date('M d, Y', strtotime($transaction->date_returned)) }}
+                                    <a href="/transaction/{{ $transaction->id }}">
+                                        {{ date('M d, Y', strtotime($transaction->date_returned)) }}
+                                    </a>
                                 @endif
                             </td>
                         </tr>

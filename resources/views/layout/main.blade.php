@@ -21,17 +21,17 @@
             <a id="description_btn" href="/home/description"> DESCRIPTION</a>
             <a id="mission_btn" href="/home/mission">MISSION</a>
             <a id="vision_btn" href="/home/vision">VISION</a>
-        
-        <div id='search_con'>
-            <form action="/home" id="search">
-                <input type="text" placeholder="Search" name="search">
-            </form>
-        </div>
-        
+
+            <div id='search_con'>
+                <form action="/search" id="search" method='post'>
+                    @csrf
+                    <input type="text" placeholder="Search" name="search">
+                </form>
+            </div>
         @elseif (request()->segment(1) != 'home')
-                <a href="/home">  <i class="fa-solid fa-arrow-left"></i> BACK</a>
+            <a href="javascript:history.back()"> <i class="fa-solid fa-arrow-left"></i> HOME</a>
         @endif
 
-        
+
     </nav>
 @endsection
