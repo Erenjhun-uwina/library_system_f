@@ -5,12 +5,22 @@
 @section('head')
     @parent
     <link rel="stylesheet" href="/css/bookshelf.css">
+    <link rel="stylesheet" href="/css/home.css">
 @endsection
 
 
 
 @section('body')
     @parent
+
+    @if(session('acc_type')=='borrower')
+        @if($borrower->status == 'onhold')
+            <div id='onhold_con'>
+                <span>your account is on hold</span>
+            </div>
+        @endif
+    @endif
+
     <main>
         @forelse (array_chunk($books->items(),7) as $bookk)
             <div class="shelves">

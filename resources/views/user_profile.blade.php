@@ -19,18 +19,19 @@
         <table>
 
             <tr>
-                <th colspan=3>DETAILS</th>
+                <th colspan=4>DETAILS</th>
             </tr>
             <tr>
                 <td>ID : {{ $borrower->id_no }}</td>
                 <td>NAME : {{ strtoupper($borrower->fn) }} {{ strtoupper($borrower->ln) }}</td>
                 <td>BORROWER TYPE : {{ strtoupper($borrower->borrower_type) }}</td>
+                <td>STATUS : {{strtoupper($borrower->status) }}</td>
             </tr>
             <tr>
-                <th colspan=3>CONTACT DETAILS</th>
+                <th colspan=4>CONTACT DETAILS</th>
             </tr>
             <tr>
-                <td colspan=2>EMAIL : {{ $borrower->email }}</td>
+                <td colspan=3>EMAIL : {{ $borrower->email }}</td>
                 <td>NO : {{ $borrower->contact_no }}</td>
             </tr>
 

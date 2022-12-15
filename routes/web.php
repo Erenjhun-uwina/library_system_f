@@ -7,6 +7,8 @@ use App\Http\Controllers\MVDController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TransactionController;
+use App\Models\Borrower;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
@@ -34,7 +36,6 @@ Route::group(
     }
 );
 
-
 Route::controller(RegisterController::class)->group(function () {
 
     Route::middleware('valid_acc_type')->group(function () {
@@ -57,3 +58,12 @@ Route::group(['controller' => TransactionController::class, 'middle' => 'auth'],
 Route::group(['controller' => ProfileController::class, 'middleware' => ['is_admin']], function () {
     Route::get('user_profile/{borrower_id}', 'profile');
 });
+
+Route::post('update_user_status',function(Request $req){
+    $borrower = Borrower::find($req->borrower_id);
+
+    $borrower->status = $borrower->status!='active'?'active':'onhold';
+
+    $borrower->save();
+    return back();
+}); 

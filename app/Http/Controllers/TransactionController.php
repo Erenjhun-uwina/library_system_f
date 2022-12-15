@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Borrower;
 use App\Models\Transaction;
 use App\Services\TransactionService;
 use DateTime;
@@ -29,12 +30,20 @@ class TransactionController extends Controller
     }
 
     public function borrow(Request $req, TransactionService $transactionService)
-    {
+    {   
+        $borrower = Borrower::find(session('id'));
         $book_id = $req->book_id;
         $borrower_id = session('id');
 
         $response = $transactionService->check($req);
 
+
+        if($borrower->status != 'active'){
+            
+            return redirect('book_preview/' . $book_id)->withErrors('your account is on hold.You cannot borrow books!');
+        }
+
+       
         if (!$response['valid']) return redirect('book_preview/' . $book_id)->withErrors($response['err']);
 
         Transaction::create([

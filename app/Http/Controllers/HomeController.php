@@ -21,13 +21,14 @@ class HomeController extends Controller
             $books = Book::all();
             $transactions = Transaction::all();
 
-            return view('admin_home', compact('transactions', 'borrowers','transactions'));
+            return view('admin_home', compact('transactions', 'borrowers','books','transactions'));
         }
         
         $title = $req->title?:"";
+        $borrower = Borrower::find(session('id'));
 
         $books = $search->handle($title)->paginate(14);
-        return view('home', compact('acc_type','books'));
+        return view('home', compact('acc_type','books','borrower'));
     }
     
     public function book_preview(Request $req)
