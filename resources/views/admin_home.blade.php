@@ -111,15 +111,15 @@
 
                     <input type="text" placeholder="Author" name="author" required>
 
-                    <input type="text" placeholder="Category" name="category" id='category' required>
+                    <input type="text" placeholder="Category" name="category" id='category' required><br>
 
                     <label for="daterelease">Date Release:</label>
                     <input type="date" id="daterelease" name="date_release"><br>
 
-                    <label for="cover">cover</label><input type="file" accept='image/*' id='cover'
+                    <label for="cover">cover: </label><input type="file" accept='image/*' id='cover'
                         name='cover'><br>
 
-                    <label for="quantity">quantity</label>
+                    <label for="quantity">quantity: </label>
                     <input type="number" name="quanity" id="quantity" value='1'><br>
 
                     <button type="submit" class="btn">Submit</button><br>

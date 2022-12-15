@@ -1,6 +1,6 @@
 @php
     
-    $colspan = $label == 'PENDING' ? 3 : 2;
+    $colspan = 2;
 @endphp
 
 <section class='book'>
@@ -28,9 +28,7 @@
                     <td>
                         {{ date('M d, Y', strtotime($transaction->date_requested)) }}
                     </td>
-                    @if ($label == 'PENDING')
-                        <td>cancel</dt>
-                    @endif
+                    
                 </tr>
             @empty
                 <td colspan={{ $colspan }}>no record</td>

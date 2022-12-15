@@ -21,8 +21,6 @@
 
                 @foreach ($bookk as $book)
                     @php($counter++)
-
-
                     <section class="book">
                         <a href="/book_preview/{{$book->id}}">
                             <img src="{{asset('assets/covers/'.$book->cover)}}" alt="">
